@@ -24,8 +24,7 @@
       font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(105% 55% at 50% 60%, rgba(32,197,184,0.13), transparent 72%),
-        linear-gradient(180deg, #000 0%, #000 20%, #04100e 46%, var(--bg) 74%);
+        linear-gradient(180deg, #000 0%, #000 18%, #04100e 45%, var(--bg) 78%);
       background-attachment: fixed;
       min-height: 100vh;
       display: flex;
@@ -54,7 +53,7 @@
     .logo-float {
       width: 100%; height: 100%;
       display: flex; align-items: center; justify-content: center;
-      animation: logoFloat 6s ease-in-out infinite;
+      animation: logoSway 7s ease-in-out infinite;
     }
     .logo img {
       width: 100%; height: 100%; object-fit: contain;
@@ -205,6 +204,20 @@
       -webkit-mask-image: radial-gradient(circle at 50% 65%, #000, transparent 80%);
       mask-image: radial-gradient(circle at 50% 65%, #000, transparent 80%);
     }
+    /* Bagliori turchesi che si muovono lentamente (dinamismo) */
+    body::after {
+      content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background:
+        radial-gradient(38% 30% at 18% 72%, rgba(32,197,184,0.20), transparent 70%),
+        radial-gradient(42% 32% at 86% 52%, rgba(32,197,184,0.14), transparent 72%),
+        radial-gradient(50% 38% at 50% 100%, rgba(32,197,184,0.10), transparent 70%);
+      animation: aurora 20s ease-in-out infinite alternate;
+    }
+    @keyframes aurora {
+      0%   { transform: translate3d(0, 0, 0) scale(1); opacity: .8; }
+      50%  { transform: translate3d(2%, -3%, 0) scale(1.1); opacity: 1; }
+      100% { transform: translate3d(-2%, 2%, 0) scale(1.05); opacity: .85; }
+    }
 
     /* ===== Riflesso/sheen sulle superfici ===== */
     .btn, .service, .details {
@@ -221,8 +234,14 @@
     .details.reveal { animation-delay: .30s; }
     .footer-legal.reveal { animation-delay: .42s; }
 
-    /* ===== Logo: galleggiamento (il bordo alto della pagina e nero, niente alone) ===== */
-    @keyframes logoFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+    /* ===== Logo: movimento autonomo (galleggia e ondeggia da solo) ===== */
+    @keyframes logoSway {
+      0%   { transform: translateY(0)    rotateZ(0deg)    rotateY(0deg); }
+      25%  { transform: translateY(-5px) rotateZ(-1.3deg) rotateY(7deg); }
+      50%  { transform: translateY(-8px) rotateZ(0deg)    rotateY(0deg); }
+      75%  { transform: translateY(-5px) rotateZ(1.3deg)  rotateY(-7deg); }
+      100% { transform: translateY(0)    rotateZ(0deg)    rotateY(0deg); }
+    }
 
     /* ===== Linea della sezione animata ===== */
     .section-head .line { transform-origin: left center; animation: lineGrow 1.1s ease .35s both; }
@@ -416,36 +435,24 @@
     overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
-    // ── Logo reattivo al movimento (scorrimento su mobile, mouse su desktop) — nessun permesso ──
+    // ── Su desktop il mouse aggiunge un leggero parallax (il logo si muove comunque da solo) ──
     (function () {
       const tilt = document.getElementById('logoTilt');
       if (!tilt) return;
       if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (!(window.matchMedia && window.matchMedia('(pointer: fine)').matches)) return;
 
-      const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
       let raf = null;
-      function apply(x, y) {
+      window.addEventListener('pointermove', (e) => {
         if (raf) return;
         raf = requestAnimationFrame(() => {
           raf = null;
+          const x = (e.clientX / window.innerWidth - 0.5) * 1.3;
+          const y = (e.clientY / window.innerHeight - 0.5) * 1.3;
           tilt.style.transform =
-            'translate(' + (x * 8).toFixed(1) + 'px,' + (y * 8).toFixed(1) + 'px) ' +
-            'rotateY(' + (x * 13).toFixed(1) + 'deg) rotateX(' + (-y * 13).toFixed(1) + 'deg)';
+            'rotateY(' + (x * 12).toFixed(1) + 'deg) rotateX(' + (-y * 12).toFixed(1) + 'deg)';
         });
-      }
-
-      // Scorrimento (mobile e non): il logo si inclina dolcemente mentre scorri
-      window.addEventListener('scroll', () => {
-        const p = clamp(window.scrollY / 320, 0, 1);
-        apply(p * 0.35, -p);
-      }, { passive: true });
-
-      // Mouse (desktop): parallax che segue il cursore
-      if (window.matchMedia && window.matchMedia('(pointer: fine)').matches) {
-        window.addEventListener('pointermove', (e) => {
-          apply((e.clientX / window.innerWidth - 0.5) * 1.3, (e.clientY / window.innerHeight - 0.5) * 1.3);
-        });
-      }
+      });
     })();
   </script>
 </body>
