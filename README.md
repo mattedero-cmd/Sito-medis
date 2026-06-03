@@ -39,7 +39,7 @@ Una volta online, l'indirizzo da impostare sul tag NFC sarà:
 ## Dati attività
 
 - **Titolare:** Deromedis Matteo
-- **Indirizzo:** Via Vittoria 11, 38049 Altopiano della Vigolana (TN)
+- **Zona:** Altopiano della Vigolana (TN)
 - **Telefono:** 351 987 8991
 - **Email:** info@medistn.it
 - **P. IVA:** 02581560220 · **C.F.:** DRMMTT89T15L378F · **SDI:** USAL8PV
