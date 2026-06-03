@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Matteo Deromedis — MediS. Lavavetri, Wrapping e Riqualificazione interni. Salva il contatto, chiama o scrivi su WhatsApp." />
-  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="description" content="Matteo Deromedis — MediS. Lavavetri, wrapping, riqualificazione interni, controllo solare e grafiche su veicoli. Salva il contatto, chiama o scrivi su WhatsApp." />
+  <meta name="theme-color" content="#07100f" />
   <title>MediS · Matteo Deromedis — Contatti</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,7 +18,6 @@
       --muted: #9aa6a4;
       --border: #25302f;
       --accent: #20c5b8;
-      --accent-soft: rgba(32,197,184,0.14);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -49,7 +48,7 @@
       box-shadow: 0 12px 50px rgba(32,197,184,0.25);
     }
     .logo .accent { color: var(--accent); }
-    .name { font-size: 1.7rem; font-weight: 800; line-height: 1.2; margin-top: 22px; }
+    .name { font-size: 1.6rem; font-weight: 800; line-height: 1.2; margin-top: 22px; }
     .tagline { color: var(--muted); font-size: 0.95rem; margin-top: 10px; }
 
     /* Pulsanti azione */
@@ -73,44 +72,39 @@
     .btn--primary:hover { filter: brightness(1.05); border-color: transparent; }
 
     /* Sezione servizi */
-    .section-head {
-      display: flex; align-items: center; gap: 16px;
-      margin: 42px 0 22px;
-    }
+    .section-head { display: flex; align-items: center; gap: 16px; margin: 42px 0 22px; }
     .section-head .line { flex: 1; height: 2px; background: linear-gradient(90deg, transparent, var(--accent)); border-radius: 2px; }
     .section-head h2 { color: var(--accent); font-size: 1.7rem; font-weight: 800; white-space: nowrap; }
 
     .services { display: flex; flex-direction: column; gap: 14px; }
     .service {
+      width: 100%;
+      text-align: left;
       background: var(--surface);
       border: 1px solid var(--border);
       border-left: 3px solid var(--accent);
       border-radius: 14px;
-      overflow: hidden;
-    }
-    .service > summary {
-      list-style: none;
+      padding: 18px;
       cursor: pointer;
-      display: flex; align-items: center; gap: 12px;
-      padding: 18px 18px;
-      font-weight: 600; font-size: 1.12rem;
+      color: var(--text);
+      font-family: inherit;
+      transition: border-color 0.15s ease, transform 0.15s ease;
     }
-    .service > summary::-webkit-details-marker { display: none; }
+    .service:active { transform: scale(0.99); }
+    .service:hover { border-color: var(--accent); }
+    .service__top { display: flex; align-items: center; gap: 12px; }
     .service__ico { color: var(--accent); display: flex; }
     .service__ico svg { width: 20px; height: 20px; }
-    .service__title { flex: 1; }
-    .service__chev { color: var(--muted); transition: transform 0.2s ease; }
-    .service__chev svg { width: 20px; height: 20px; display: block; }
-    .service[open] .service__chev { transform: rotate(90deg); }
-    .service__body { padding: 0 18px 18px; color: var(--muted); font-size: 0.95rem; line-height: 1.6; }
+    .service__title { flex: 1; font-weight: 600; font-size: 1.12rem; }
+    .service__chev { color: var(--muted); display: flex; }
+    .service__chev svg { width: 20px; height: 20px; }
+    .service__excerpt {
+      margin-top: 10px; color: var(--muted); font-size: 0.92rem; line-height: 1.55;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    }
 
     /* Dettagli contatto */
-    .details {
-      margin-top: 30px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px; overflow: hidden;
-    }
+    .details { margin-top: 30px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
     .detail { display: flex; align-items: center; gap: 14px; padding: 15px 18px; text-decoration: none; color: var(--text); }
     .detail + .detail { border-top: 1px solid var(--border); }
     .detail__icon { color: var(--accent); flex-shrink: 0; }
@@ -120,6 +114,57 @@
 
     .site-link { display: block; text-align: center; margin-top: 24px; color: var(--accent); font-weight: 600; font-size: 0.95rem; text-decoration: none; }
     .footer-legal { margin-top: 26px; text-align: center; color: #5f6a68; font-size: 0.72rem; line-height: 1.6; }
+
+    /* Modale servizio */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(4px);
+      display: flex; align-items: flex-end; justify-content: center;
+      padding: 16px;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.2s ease, visibility 0.2s ease;
+      z-index: 50;
+    }
+    .modal-overlay.open { opacity: 1; visibility: visible; }
+    .modal {
+      width: 100%; max-width: 460px;
+      background: #0c1413;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 28px 24px 26px;
+      max-height: 86vh; overflow-y: auto;
+      transform: translateY(20px);
+      transition: transform 0.25s ease;
+      position: relative;
+      text-align: center;
+    }
+    .modal-overlay.open .modal { transform: translateY(0); }
+    .modal__close {
+      position: absolute; top: 16px; right: 16px;
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid var(--accent);
+      background: transparent; color: var(--accent);
+      font-size: 1.1rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .modal__title { color: var(--accent); font-size: 1.5rem; font-weight: 800; margin-bottom: 14px; padding: 0 28px; }
+    .modal__desc { color: var(--text); font-size: 0.98rem; line-height: 1.6; }
+    .modal__ig {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      margin-top: 22px; padding: 15px; border-radius: 14px;
+      font-weight: 700; color: #fff; text-decoration: none;
+      background: linear-gradient(90deg, #f58529, #dd2a7b, #8134af, #515bd4);
+    }
+    .modal__ig svg { width: 22px; height: 22px; }
+    .modal__gallery {
+      margin-top: 18px; padding: 34px 18px;
+      border: 1.5px dashed var(--border); border-radius: 16px;
+      color: var(--muted); font-size: 0.9rem; line-height: 1.5;
+    }
+    .modal__gallery svg { width: 40px; height: 40px; color: var(--accent); margin-bottom: 12px; }
+    .modal__gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
+    .modal__gallery-grid img { width: 100%; border-radius: 14px; display: block; }
   </style>
 </head>
 <body>
@@ -155,40 +200,7 @@
       <span class="line"></span>
       <h2>Cosa faccio</h2>
     </div>
-    <div class="services">
-      <details class="service" open>
-        <summary>
-          <span class="service__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></span>
-          <span class="service__title">Lavavetri</span>
-          <span class="service__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
-        </summary>
-        <div class="service__body">
-          Pulizia professionale di vetrate per negozi, uffici e showroom. Pulizia di pannelli fotovoltaici per ripristinare resa ed efficienza dell'impianto. Interventi singoli o programmati su vetri, ingressi, telai, superfici esposte e moduli FV. Ambienti più luminosi e impianti più performanti.
-        </div>
-      </details>
-
-      <details class="service">
-        <summary>
-          <span class="service__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span>
-          <span class="service__title">Wrapping</span>
-          <span class="service__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
-        </summary>
-        <div class="service__body">
-          Applicazione di pellicole e grafiche adesive su vetrine, automezzi e superfici. Scritte, loghi e decorazioni posate con precisione, senza bolle e durature nel tempo. Personalizza i tuoi spazi e fai notare la tua attività.
-        </div>
-      </details>
-
-      <details class="service">
-        <summary>
-          <span class="service__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></span>
-          <span class="service__title">Riqualificazione interni</span>
-          <span class="service__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
-        </summary>
-        <div class="service__body">
-          Rinnovo e valorizzazione di ambienti interni: interventi mirati che ridanno luce, ordine e valore ai tuoi spazi, con cura per ogni dettaglio. Soluzioni su misura per ambienti residenziali e commerciali.
-        </div>
-      </details>
-    </div>
+    <div class="services" id="services"></div>
 
     <!-- Dettagli -->
     <div class="details">
@@ -213,5 +225,109 @@
       C.F. DRMMTT89T15L378F · SDI USAL8PV
     </p>
   </main>
+
+  <!-- Modale (unica, riusata) -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" role="dialog" aria-modal="true">
+      <button class="modal__close" id="modalClose" aria-label="Chiudi">✕</button>
+      <h3 class="modal__title" id="modalTitle"></h3>
+      <p class="modal__desc" id="modalDesc"></p>
+      <a class="modal__ig" id="modalIg" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+        Instagram
+      </a>
+      <div id="modalGallery"></div>
+    </div>
+  </div>
+
+  <script>
+    // ── Profilo Instagram (da impostare con il tuo profilo reale) ──
+    const INSTAGRAM_URL = "https://www.instagram.com/";
+
+    // ── Servizi (testi presi dalla scheda esistente) ──
+    const SERVICES = [
+      {
+        title: "Lavavetri",
+        icon: '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/>',
+        desc: "Pulizia professionale di vetrate per negozi, uffici e showroom. Pulizia di pannelli fotovoltaici per ripristinare resa ed efficienza dell'impianto. Interventi singoli o programmati su vetri, ingressi, telai, superfici esposte e moduli FV. Ambienti più luminosi e impianti più performanti.",
+        gallery: []
+      },
+      {
+        title: "Riqualificazione interni",
+        icon: '<path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/>',
+        desc: "Rinnovo di arredi, porte, banconi, pareti e reception. Pellicole decorative effetto legno, pietra, metallo o colore. Alternativa pulita e veloce alla sostituzione. Ideale per aggiornare ambienti commerciali e professionali.",
+        gallery: []
+      },
+      {
+        title: "Controllo solare",
+        icon: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+        desc: "Pellicole per ridurre calore, abbagliamento e raggi solari. Migliorano il comfort di uffici, negozi e showroom. Proteggono arredi, prodotti e superfici esposte. Una soluzione discreta per gestire luce e temperatura.",
+        gallery: []
+      },
+      {
+        title: "Auto aziendali",
+        icon: '<path d="M5 17h14M3 17l2-6h14l2 6"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/><path d="M5 11V7h11l3 4"/>',
+        desc: "Applicazione di loghi, scritte e grafiche su veicoli aziendali. Personalizzazione parziale o completa. Il mezzo diventa uno strumento di comunicazione visibile. Grafica chiara, leggibile e coerente con il brand.",
+        gallery: []
+      },
+      {
+        title: "Wrapping auto",
+        icon: '<path d="M5 17h14M3 17l2-6h14l2 6"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/><path d="M12 11V4M9 7l3-3 3 3"/>',
+        desc: "Cambio colore di auto tramite pellicole adesive professionali. Una soluzione per rinnovare l'aspetto del veicolo. Ampia scelta di colori e finiture opache, lucide o satinate. Applicazione curata per un risultato pulito e uniforme.",
+        gallery: []
+      }
+    ];
+
+    // ── Render delle schede ──
+    const chevron = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>';
+    const servicesEl = document.getElementById('services');
+    SERVICES.forEach((s, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'service';
+      btn.innerHTML =
+        '<div class="service__top">' +
+          '<span class="service__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + s.icon + '</svg></span>' +
+          '<span class="service__title">' + s.title + '</span>' +
+          '<span class="service__chev">' + chevron + '</span>' +
+        '</div>' +
+        '<p class="service__excerpt">' + s.desc + '</p>';
+      btn.addEventListener('click', () => openModal(i));
+      servicesEl.appendChild(btn);
+    });
+
+    // ── Modale ──
+    const overlay = document.getElementById('modalOverlay');
+    const titleEl = document.getElementById('modalTitle');
+    const descEl = document.getElementById('modalDesc');
+    const igEl = document.getElementById('modalIg');
+    const galleryEl = document.getElementById('modalGallery');
+
+    function openModal(i) {
+      const s = SERVICES[i];
+      titleEl.textContent = s.title;
+      descEl.textContent = s.desc;
+      igEl.href = INSTAGRAM_URL;
+      if (s.gallery && s.gallery.length) {
+        galleryEl.className = '';
+        galleryEl.innerHTML = '<div class="modal__gallery-grid">' +
+          s.gallery.map(src => '<img src="' + src + '" alt="' + s.title + '" loading="lazy">').join('') +
+          '</div>';
+      } else {
+        galleryEl.className = 'modal__gallery';
+        galleryEl.innerHTML =
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>' +
+          '<div>Galleria in arrivo.<br />Le immagini saranno caricate a breve.</div>';
+      }
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+  </script>
 </body>
 </html>
