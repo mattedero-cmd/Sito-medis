@@ -53,7 +53,7 @@
     .logo-float {
       width: 100%; height: 100%;
       display: flex; align-items: center; justify-content: center;
-      animation: logoSway 7s ease-in-out infinite;
+      animation: logoSway 5.2s ease-in-out infinite;
     }
     .logo img {
       width: 100%; height: 100%; object-fit: contain;
@@ -208,16 +208,33 @@
     body::after {
       content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
       background:
-        radial-gradient(38% 30% at 18% 72%, rgba(32,197,184,0.20), transparent 70%),
-        radial-gradient(42% 32% at 86% 52%, rgba(32,197,184,0.14), transparent 72%),
-        radial-gradient(50% 38% at 50% 100%, rgba(32,197,184,0.10), transparent 70%);
-      animation: aurora 20s ease-in-out infinite alternate;
+        radial-gradient(38% 30% at 18% 70%, rgba(32,197,184,0.26), transparent 70%),
+        radial-gradient(42% 32% at 86% 50%, rgba(32,197,184,0.20), transparent 72%),
+        radial-gradient(55% 40% at 50% 100%, rgba(32,197,184,0.15), transparent 70%);
+      animation: aurora 15s ease-in-out infinite alternate;
     }
     @keyframes aurora {
-      0%   { transform: translate3d(0, 0, 0) scale(1); opacity: .8; }
-      50%  { transform: translate3d(2%, -3%, 0) scale(1.1); opacity: 1; }
-      100% { transform: translate3d(-2%, 2%, 0) scale(1.05); opacity: .85; }
+      0%   { transform: translate3d(0, 0, 0) scale(1); opacity: .75; }
+      50%  { transform: translate3d(3%, -5%, 0) scale(1.14); opacity: 1; }
+      100% { transform: translate3d(-3%, 3%, 0) scale(1.08); opacity: .85; }
     }
+    /* Orbite luminose che attraversano lo sfondo (movimento piu marcato) */
+    .bgfx { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+    .bgfx span {
+      position: absolute; border-radius: 50%; filter: blur(70px); display: block;
+    }
+    .bgfx .orb1 {
+      width: 60vw; height: 60vw; left: -14vw; top: 34%;
+      background: radial-gradient(circle, rgba(32,197,184,0.26), transparent 68%);
+      animation: orb1 16s ease-in-out infinite alternate;
+    }
+    .bgfx .orb2 {
+      width: 52vw; height: 52vw; right: -16vw; top: 56%;
+      background: radial-gradient(circle, rgba(46,210,180,0.20), transparent 68%);
+      animation: orb2 19s ease-in-out infinite alternate;
+    }
+    @keyframes orb1 { from { transform: translate(0,0) scale(1); } to { transform: translate(16vw,-12vh) scale(1.15); } }
+    @keyframes orb2 { from { transform: translate(0,0) scale(1); } to { transform: translate(-16vw,9vh) scale(1.1); } }
 
     /* ===== Riflesso/sheen sulle superfici ===== */
     .btn, .service, .details {
@@ -236,11 +253,11 @@
 
     /* ===== Logo: movimento autonomo (galleggia e ondeggia da solo) ===== */
     @keyframes logoSway {
-      0%   { transform: translateY(0)    rotateZ(0deg)    rotateY(0deg); }
-      25%  { transform: translateY(-5px) rotateZ(-1.3deg) rotateY(7deg); }
-      50%  { transform: translateY(-8px) rotateZ(0deg)    rotateY(0deg); }
-      75%  { transform: translateY(-5px) rotateZ(1.3deg)  rotateY(-7deg); }
-      100% { transform: translateY(0)    rotateZ(0deg)    rotateY(0deg); }
+      0%   { transform: translateY(0)     rotateZ(0deg)  rotateY(0deg); }
+      25%  { transform: translateY(-9px)  rotateZ(-2.5deg) rotateY(13deg); }
+      50%  { transform: translateY(-14px) rotateZ(0deg)  rotateY(0deg); }
+      75%  { transform: translateY(-9px)  rotateZ(2.5deg)  rotateY(-13deg); }
+      100% { transform: translateY(0)     rotateZ(0deg)  rotateY(0deg); }
     }
 
     /* ===== Linea della sezione animata ===== */
@@ -278,6 +295,7 @@
   </style>
 </head>
 <body>
+  <div class="bgfx" aria-hidden="true"><span class="orb1"></span><span class="orb2"></span></div>
   <main class="card">
     <div class="head reveal">
       <div class="logo" id="logo">
