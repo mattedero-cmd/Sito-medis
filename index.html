@@ -24,9 +24,8 @@
       font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(130% 70% at 50% -10%, rgba(32,197,184,0.20), transparent 55%),
-        radial-gradient(90% 60% at 100% 105%, rgba(32,197,184,0.07), transparent 60%),
-        var(--bg);
+        radial-gradient(105% 55% at 50% 60%, rgba(32,197,184,0.13), transparent 72%),
+        linear-gradient(180deg, #000 0%, #000 20%, #04100e 46%, var(--bg) 74%);
       background-attachment: fixed;
       min-height: 100vh;
       display: flex;
@@ -198,24 +197,13 @@
     .modal__gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
     .modal__gallery-grid img { width: 100%; border-radius: 14px; display: block; }
 
-    /* ===== Texture e bagliori di sfondo ===== */
+    /* ===== Texture di sfondo (lontana dal logo) ===== */
     body::before {
       content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
-      background-image: radial-gradient(rgba(255,255,255,0.045) 1px, transparent 1px);
+      background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
       background-size: 24px 24px;
-      -webkit-mask-image: radial-gradient(circle at 50% 22%, #000, transparent 75%);
-      mask-image: radial-gradient(circle at 50% 22%, #000, transparent 75%);
-    }
-    body::after {
-      content: ""; position: fixed; left: 50%; top: -25%; width: 130vw; height: 70vh;
-      transform: translateX(-50%); z-index: 0; pointer-events: none;
-      background: radial-gradient(closest-side, rgba(32,197,184,0.18), transparent 70%);
-      filter: blur(40px);
-      animation: drift 16s ease-in-out infinite alternate;
-    }
-    @keyframes drift {
-      from { transform: translate(-54%, -3%) scale(1); }
-      to   { transform: translate(-46%, 5%) scale(1.12); }
+      -webkit-mask-image: radial-gradient(circle at 50% 65%, #000, transparent 80%);
+      mask-image: radial-gradient(circle at 50% 65%, #000, transparent 80%);
     }
 
     /* ===== Riflesso/sheen sulle superfici ===== */
@@ -233,14 +221,7 @@
     .details.reveal { animation-delay: .30s; }
     .footer-legal.reveal { animation-delay: .42s; }
 
-    /* ===== Logo: sfumatura nera che lo fonde con lo sfondo (niente bordo) ===== */
-    .logo::after {
-      content: ""; position: absolute; inset: -58px; z-index: -1; pointer-events: none;
-      background: radial-gradient(circle,
-        #000 56%,
-        rgba(0,0,0,0.55) 76%,
-        rgba(7,16,15,0) 100%);
-    }
+    /* ===== Logo: galleggiamento (il bordo alto della pagina e nero, niente alone) ===== */
     @keyframes logoFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
 
     /* ===== Linea della sezione animata ===== */
@@ -435,49 +416,34 @@
     overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
-    // ── Logo reattivo al movimento (giroscopio su mobile, mouse su desktop) ──
+    // ── Logo reattivo al movimento (scorrimento su mobile, mouse su desktop) — nessun permesso ──
     (function () {
       const tilt = document.getElementById('logoTilt');
       if (!tilt) return;
       if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
       const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
-      let raf = null, tx = 0, ty = 0;
+      let raf = null;
       function apply(x, y) {
         if (raf) return;
         raf = requestAnimationFrame(() => {
           raf = null;
           tilt.style.transform =
-            'translate(' + (x * 9).toFixed(1) + 'px,' + (y * 9).toFixed(1) + 'px) ' +
-            'rotateY(' + (x * 14).toFixed(1) + 'deg) rotateX(' + (-y * 14).toFixed(1) + 'deg)';
+            'translate(' + (x * 8).toFixed(1) + 'px,' + (y * 8).toFixed(1) + 'px) ' +
+            'rotateY(' + (x * 13).toFixed(1) + 'deg) rotateX(' + (-y * 13).toFixed(1) + 'deg)';
         });
       }
 
-      // Giroscopio (mobile) — relativo a come si tiene il telefono
-      let base = null;
-      function onOrient(e) {
-        if (e.gamma == null || e.beta == null) return;
-        if (!base) base = { g: e.gamma, b: e.beta };
-        apply(clamp((e.gamma - base.g) / 28, -1, 1), clamp((e.beta - base.b) / 28, -1, 1));
-      }
-      function startGyro() { window.addEventListener('deviceorientation', onOrient); }
+      // Scorrimento (mobile e non): il logo si inclina dolcemente mentre scorri
+      window.addEventListener('scroll', () => {
+        const p = clamp(window.scrollY / 320, 0, 1);
+        apply(p * 0.35, -p);
+      }, { passive: true });
 
-      const DOE = window.DeviceOrientationEvent;
-      if (DOE && typeof DOE.requestPermission === 'function') {
-        // iOS: il permesso ai sensori va chiesto dopo un tocco
-        const ask = () => {
-          DOE.requestPermission().then(s => { if (s === 'granted') startGyro(); }).catch(() => {});
-        };
-        window.addEventListener('touchend', ask, { once: true });
-        window.addEventListener('click', ask, { once: true });
-      } else if (DOE) {
-        startGyro();
-      }
-
-      // Mouse (desktop)
+      // Mouse (desktop): parallax che segue il cursore
       if (window.matchMedia && window.matchMedia('(pointer: fine)').matches) {
         window.addEventListener('pointermove', (e) => {
-          apply((e.clientX / window.innerWidth - 0.5) * 1.2, (e.clientY / window.innerHeight - 0.5) * 1.2);
+          apply((e.clientX / window.innerWidth - 0.5) * 1.3, (e.clientY / window.innerHeight - 0.5) * 1.3);
         });
       }
     })();
