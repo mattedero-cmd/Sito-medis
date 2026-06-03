@@ -1,0 +1,44 @@
+name: Deploy sito MediS su GitHub Pages
+
+on:
+  push:
+    branches:
+      - claude/personal-website-n4B7R
+      - main
+  workflow_dispatch:
+
+# Permessi necessari per la pubblicazione su Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Una sola pubblicazione alla volta
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout del repository
+        uses: actions/checkout@v4
+
+      - name: Configura GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          # Abilita automaticamente Pages se non è già attivo
+          enablement: true
+
+      - name: Carica i file del sito
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Pubblica su GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
