@@ -214,8 +214,10 @@
     .detail__value { font-size: 0.95rem; font-weight: 500; }
 
     .site-link { display: block; text-align: center; margin-top: 24px; color: var(--accent); font-weight: 600; font-size: 0.95rem; text-decoration: none; }
-    .areas { margin-top: 30px; text-align: center; color: var(--muted); font-size: 0.85rem; line-height: 1.6; }
+    .areas { margin-top: 30px; text-align: center; color: var(--muted); font-size: 0.85rem; line-height: 1.7; }
     .areas strong { color: var(--accent); font-weight: 600; }
+    .areas a { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--border); }
+    .areas a:hover { color: var(--accent); border-color: var(--accent); }
     .footer-legal { margin-top: 18px; text-align: center; color: #5f6a68; font-size: 0.72rem; line-height: 1.6; }
 
     /* Modale servizio */
@@ -405,6 +407,10 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M7 16a2.5 2.5 0 0 1 5 0"/><line x1="15" y1="9" x2="18" y2="9"/><line x1="15" y1="13" x2="18" y2="13"/></svg>
         Salva contatto
       </a>
+      <a class="btn" id="reviewBtn" href="#" target="_blank" rel="noopener" style="display:none;">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.7L12 17.3 5.8 20.8l1.6-6.7L2.2 8.9l6.9-.6L12 2z"/></svg>
+        Lascia una recensione
+      </a>
     </div>
 
     <!-- Cosa faccio -->
@@ -414,7 +420,7 @@
     </div>
     <div class="services" id="services"></div>
 
-    <p class="areas reveal">Servizio <strong>lavavetri</strong> in tutto il <strong>Trentino</strong> — Trento, Rovereto, Pergine Valsugana, Altopiano della Vigolana e dintorni. Pulizia di vetrate, vetrine, finestre e pannelli fotovoltaici.</p>
+    <p class="areas reveal">Servizio <strong>lavavetri</strong> in tutto il <strong>Trentino</strong> — <a href="lavavetri-trento.html">Trento</a>, <a href="lavavetri-rovereto.html">Rovereto</a>, <a href="lavavetri-pergine-valsugana.html">Pergine Valsugana</a>, <a href="lavavetri-altopiano-della-vigolana.html">Altopiano della Vigolana</a> e dintorni. <a href="pulizia-pannelli-fotovoltaici-trentino.html">Pulizia di vetrate, vetrine, finestre e pannelli fotovoltaici</a>.</p>
 
     <p class="footer-legal reveal">
       Deromedis Matteo — P. IVA 02581560220<br />
@@ -439,6 +445,14 @@
   <script>
     // ── Profilo Instagram ──
     const INSTAGRAM_URL = "https://www.instagram.com/8_medis_9/";
+
+    // ── Link recensioni Google (incolla qui quando avrai il Profilo dell'attività) ──
+    const REVIEW_URL = "";
+    if (REVIEW_URL) {
+      const rb = document.getElementById('reviewBtn');
+      rb.href = REVIEW_URL;
+      rb.style.display = 'flex';
+    }
 
     // ── Servizi (testi presi dalla scheda esistente) ──
     const SERVICES = [
