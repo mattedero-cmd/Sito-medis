@@ -1,7 +1,7 @@
 # MediS — Sito web
 
-Sito vetrina di **MediS** di Matteo Deromedis: lavavetri, applicatore pubblicitario
-e riqualificatore di interni nell'Altopiano della Vigolana (TN).
+Sito vetrina di **MediS** di Matteo Deromedis: lavavetri, wrapping
+e riqualificazione interni nell'Altopiano della Vigolana (TN).
 
 Realizzato in **HTML, CSS e JavaScript** puro, senza framework né dipendenze.
 Tema scuro con accento turchese, coerente con il logo e il biglietto da visita.
@@ -31,7 +31,7 @@ Una volta online, l'indirizzo da impostare sul tag NFC sarà:
 ## Contenuti del sito
 
 - **Hero** — presentazione dell'attività e call-to-action
-- **Servizi** — Lavavetri · Applicatore pubblicitario · Riqualificatore di interni
+- **Servizi** — Lavavetri · Wrapping · Riqualificazione interni
 - **Chi sono** — presentazione di Matteo Deromedis
 - **Perché MediS** — i punti di forza
 - **Contatti** — form di richiesta preventivo + contatti diretti e WhatsApp
