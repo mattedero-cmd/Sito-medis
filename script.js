@@ -30,11 +30,13 @@ if (form) {
 
     const name = form.name.value.trim();
     const email = form.email.value.trim();
+    const phone = form.phone ? form.phone.value.trim() : '';
+    const service = form.service ? form.service.value : '';
     const message = form.message.value.trim();
     const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
     if (!name || !email || !message) {
-      showFeedback('Per favore compila tutti i campi.', 'error');
+      showFeedback('Per favore compila i campi obbligatori (nome, email, messaggio).', 'error');
       return;
     }
     if (!emailValid) {
@@ -42,11 +44,13 @@ if (form) {
       return;
     }
 
-    // Nota: per inviare davvero i messaggi serve un backend o un servizio
-    // come Formspree/Netlify Forms. Per ora apriamo il client di posta.
-    const subject = encodeURIComponent(`Messaggio da ${name}`);
-    const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
-    window.location.href = `mailto:matte.dero@hotmail.it?subject=${subject}&body=${body}`;
+    // Nota: per ricevere davvero le richieste senza aprire il client di posta
+    // si può collegare un servizio come Formspree/Netlify Forms.
+    const subject = encodeURIComponent(`Richiesta preventivo${service ? ' · ' + service : ''} — ${name}`);
+    const body = encodeURIComponent(
+      `Nome: ${name}\nEmail: ${email}\nTelefono: ${phone || '—'}\nServizio: ${service || '—'}\n\n${message}`
+    );
+    window.location.href = `mailto:info@medistn.it?subject=${subject}&body=${body}`;
 
     showFeedback('Grazie! Si aprirà il tuo client di posta per inviare il messaggio.', 'success');
     form.reset();

@@ -3,27 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Sito personale e portfolio di Matteo — competenze, esperienze e progetti." />
-  <title>Matteo · Portfolio</title>
+  <meta name="description" content="MediS di Matteo Deromedis — Lavavetri, applicatore pubblicitario e riqualificatore di interni nell'Altopiano della Vigolana (TN)." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <title>MediS · Lavavetri · Pubblicità · Riqualificazione interni</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <!-- Navbar -->
   <header class="site-header" id="top">
     <nav class="nav container">
-      <a href="#top" class="nav__brand">Matteo</a>
+      <a href="#top" class="brand">
+        <span class="brand__mark">M<span class="brand__accent">e</span>diS</span>
+      </a>
       <button class="nav__toggle" aria-label="Apri menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav__menu">
-        <li><a href="#about">Chi sono</a></li>
-        <li><a href="#skills">Competenze</a></li>
-        <li><a href="#experience">Esperienza</a></li>
-        <li><a href="#projects">Progetti</a></li>
-        <li><a href="#contact" class="nav__cta">Contatti</a></li>
+        <li><a href="#servizi">Servizi</a></li>
+        <li><a href="#chi-sono">Chi sono</a></li>
+        <li><a href="#perche">Perché MediS</a></li>
+        <li><a href="#contatti" class="nav__cta">Richiedi preventivo</a></li>
       </ul>
     </nav>
   </header>
@@ -32,147 +34,184 @@
     <!-- Hero -->
     <section class="hero">
       <div class="container hero__inner">
-        <p class="hero__eyebrow">Ciao, sono</p>
-        <h1 class="hero__title">Matteo Cognome</h1>
-        <p class="hero__subtitle">Professione / Ruolo — una breve frase che descrive cosa fai e il valore che porti.</p>
+        <span class="hero__badge">Altopiano della Vigolana · Trento</span>
+        <h1 class="hero__title">Spazi più puliti,<br />interni rinnovati,<br /><span class="text-accent">pubblicità che si nota.</span></h1>
+        <p class="hero__subtitle">
+          MediS è il servizio di Matteo Deromedis per privati e aziende:
+          pulizia vetri professionale, applicazione di grafiche pubblicitarie
+          e riqualificazione di interni. Lavoro pulito, preciso e puntuale.
+        </p>
         <div class="hero__actions">
-          <a href="#projects" class="btn btn--primary">Vedi i progetti</a>
-          <a href="#contact" class="btn btn--ghost">Contattami</a>
+          <a href="#contatti" class="btn btn--primary">Richiedi un preventivo</a>
+          <a href="tel:+393519878991" class="btn btn--ghost">Chiama: 351 987 8991</a>
         </div>
       </div>
     </section>
 
-    <!-- About -->
-    <section class="section" id="about">
+    <!-- Servizi -->
+    <section class="section" id="servizi">
       <div class="container">
-        <h2 class="section__title">Chi sono</h2>
+        <p class="section__eyebrow">Cosa faccio</p>
+        <h2 class="section__title">I miei servizi</h2>
+        <div class="services">
+          <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <!-- vetro -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+            </div>
+            <h3>Lavavetri</h3>
+            <p>Pulizia professionale di vetrate, vetrine, finestre e superfici a specchio. Risultato senza aloni, per abitazioni e attività commerciali.</p>
+            <ul class="service-card__list">
+              <li>Vetrine e negozi</li>
+              <li>Abitazioni private</li>
+              <li>Uffici e condomini</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <!-- pubblicità -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+            </div>
+            <h3>Applicatore pubblicitario</h3>
+            <p>Applicazione di adesivi, vetrofanie, grafiche e pellicole su vetrine, mezzi e superfici. Posa precisa, senza bolle e duratura nel tempo.</p>
+            <ul class="service-card__list">
+              <li>Scritte e loghi su vetrina</li>
+              <li>Decorazione automezzi</li>
+              <li>Pannelli e insegne</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <!-- interni -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg>
+            </div>
+            <h3>Riqualificatore di interni</h3>
+            <p>Rinnovo e valorizzazione di ambienti interni: piccoli interventi che ridanno luce e ordine ai tuoi spazi, con cura per i dettagli.</p>
+            <ul class="service-card__list">
+              <li>Rinnovo ambienti</li>
+              <li>Finiture e dettagli</li>
+              <li>Spazi residenziali e commerciali</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chi sono -->
+    <section class="section section--alt" id="chi-sono">
+      <div class="container">
         <div class="about">
           <div class="about__text">
-            <p>Scrivi qui una breve presentazione di te stesso: chi sei, la tua formazione e cosa ti appassiona del tuo lavoro. Mantieni un tono professionale ma personale.</p>
-            <p>Puoi aggiungere un secondo paragrafo con i tuoi obiettivi, i valori che guidano il tuo lavoro oppure ciò che ti distingue.</p>
-            <ul class="about__facts">
-              <li><strong>Sede:</strong> Città, Italia</li>
-              <li><strong>Email:</strong> <a href="mailto:matte.dero@hotmail.it">matte.dero@hotmail.it</a></li>
-              <li><strong>Disponibilità:</strong> Aperto a nuove opportunità</li>
-            </ul>
+            <p class="section__eyebrow">Chi sono</p>
+            <h2 class="section__title">Matteo Deromedis</h2>
+            <p>Sono Matteo, il volto dietro <strong>MediS</strong>. Lavoro nell'Altopiano della Vigolana e nel territorio trentino offrendo servizi pratici e curati: dalla pulizia dei vetri all'applicazione di grafiche pubblicitarie, fino alla riqualificazione degli interni.</p>
+            <p>Credo in un lavoro fatto bene, nei tempi concordati e con la massima attenzione al dettaglio. Ogni cliente riceve un servizio su misura e un preventivo chiaro, senza sorprese.</p>
+            <div class="about__cta">
+              <a href="#contatti" class="btn btn--primary">Lavoriamo insieme</a>
+            </div>
           </div>
-          <div class="about__card">
-            <div class="about__avatar" aria-hidden="true">M</div>
-            <p class="about__card-name">Matteo Cognome</p>
-            <p class="about__card-role">Professione / Ruolo</p>
+          <aside class="about__card">
+            <div class="about__logo" aria-hidden="true">M<span class="brand__accent">e</span>diS</div>
+            <p class="about__card-name">MediS</p>
+            <p class="about__card-role">di Matteo Deromedis</p>
+            <ul class="about__contact">
+              <li><span>Zona</span> Altopiano della Vigolana (TN)</li>
+              <li><span>Tel</span> <a href="tel:+393519878991">351 987 8991</a></li>
+              <li><span>Mail</span> <a href="mailto:info@medistn.it">info@medistn.it</a></li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Perché MediS -->
+    <section class="section" id="perche">
+      <div class="container">
+        <p class="section__eyebrow">I miei valori</p>
+        <h2 class="section__title">Perché scegliere MediS</h2>
+        <div class="features">
+          <div class="feature">
+            <div class="feature__num">01</div>
+            <h3>Precisione</h3>
+            <p>Lavoro curato nei dettagli, dal primo all'ultimo passaggio.</p>
+          </div>
+          <div class="feature">
+            <div class="feature__num">02</div>
+            <h3>Puntualità</h3>
+            <p>Rispetto i tempi concordati, perché il tuo tempo conta.</p>
+          </div>
+          <div class="feature">
+            <div class="feature__num">03</div>
+            <h3>Preventivi chiari</h3>
+            <p>Prezzi trasparenti e concordati in anticipo, senza sorprese.</p>
+          </div>
+          <div class="feature">
+            <div class="feature__num">04</div>
+            <h3>Servizio locale</h3>
+            <p>Vicino a te, nell'Altopiano della Vigolana e dintorni.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Skills -->
-    <section class="section section--alt" id="skills">
+    <!-- Contatti -->
+    <section class="section section--alt" id="contatti">
       <div class="container">
-        <h2 class="section__title">Competenze</h2>
-        <div class="skills">
-          <article class="skill-card">
-            <h3>Area 1</h3>
-            <ul>
-              <li>Competenza A</li>
-              <li>Competenza B</li>
-              <li>Competenza C</li>
-            </ul>
-          </article>
-          <article class="skill-card">
-            <h3>Area 2</h3>
-            <ul>
-              <li>Competenza A</li>
-              <li>Competenza B</li>
-              <li>Competenza C</li>
-            </ul>
-          </article>
-          <article class="skill-card">
-            <h3>Area 3</h3>
-            <ul>
-              <li>Competenza A</li>
-              <li>Competenza B</li>
-              <li>Competenza C</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience -->
-    <section class="section" id="experience">
-      <div class="container">
-        <h2 class="section__title">Esperienza</h2>
-        <div class="timeline">
-          <div class="timeline__item">
-            <span class="timeline__date">2023 — Oggi</span>
-            <h3 class="timeline__role">Ruolo · Azienda</h3>
-            <p>Descrizione delle responsabilità principali e dei risultati ottenuti in questo ruolo.</p>
-          </div>
-          <div class="timeline__item">
-            <span class="timeline__date">2020 — 2023</span>
-            <h3 class="timeline__role">Ruolo · Azienda</h3>
-            <p>Descrizione delle responsabilità principali e dei risultati ottenuti in questo ruolo.</p>
-          </div>
-          <div class="timeline__item">
-            <span class="timeline__date">2018 — 2020</span>
-            <h3 class="timeline__role">Formazione · Istituto</h3>
-            <p>Titolo di studio o esperienza formativa rilevante.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects -->
-    <section class="section section--alt" id="projects">
-      <div class="container">
-        <h2 class="section__title">Progetti</h2>
-        <div class="projects">
-          <article class="project-card">
-            <h3>Progetto 1</h3>
-            <p>Breve descrizione del progetto, del tuo ruolo e del risultato ottenuto.</p>
-            <a href="#" class="project-card__link">Scopri di più →</a>
-          </article>
-          <article class="project-card">
-            <h3>Progetto 2</h3>
-            <p>Breve descrizione del progetto, del tuo ruolo e del risultato ottenuto.</p>
-            <a href="#" class="project-card__link">Scopri di più →</a>
-          </article>
-          <article class="project-card">
-            <h3>Progetto 3</h3>
-            <p>Breve descrizione del progetto, del tuo ruolo e del risultato ottenuto.</p>
-            <a href="#" class="project-card__link">Scopri di più →</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="section" id="contact">
-      <div class="container">
-        <h2 class="section__title">Contatti</h2>
-        <p class="contact__lead">Hai un progetto in mente o vuoi semplicemente metterti in contatto? Scrivimi.</p>
-        <form class="contact-form" id="contactForm" novalidate>
-          <div class="form-row">
-            <label>
-              Nome
-              <input type="text" name="name" required placeholder="Il tuo nome" />
-            </label>
+        <p class="section__eyebrow">Contatti</p>
+        <h2 class="section__title">Richiedi un preventivo</h2>
+        <div class="contact">
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-row">
+              <label>
+                Nome e cognome
+                <input type="text" name="name" required placeholder="Il tuo nome" />
+              </label>
+              <label>
+                Telefono
+                <input type="tel" name="phone" placeholder="Il tuo numero" />
+              </label>
+            </div>
             <label>
               Email
               <input type="email" name="email" required placeholder="latua@email.it" />
             </label>
-          </div>
-          <label>
-            Messaggio
-            <textarea name="message" rows="5" required placeholder="Scrivi il tuo messaggio..."></textarea>
-          </label>
-          <button type="submit" class="btn btn--primary">Invia messaggio</button>
-          <p class="form-feedback" id="formFeedback" role="status"></p>
-        </form>
-        <div class="contact__links">
-          <a href="mailto:matte.dero@hotmail.it">Email</a>
-          <a href="#" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="#" target="_blank" rel="noopener">GitHub</a>
+            <label>
+              Servizio di interesse
+              <select name="service">
+                <option value="Lavavetri">Lavavetri</option>
+                <option value="Applicatore pubblicitario">Applicatore pubblicitario</option>
+                <option value="Riqualificazione interni">Riqualificazione di interni</option>
+                <option value="Altro">Altro</option>
+              </select>
+            </label>
+            <label>
+              Messaggio
+              <textarea name="message" rows="4" required placeholder="Descrivi di cosa hai bisogno..."></textarea>
+            </label>
+            <button type="submit" class="btn btn--primary">Invia richiesta</button>
+            <p class="form-feedback" id="formFeedback" role="status"></p>
+          </form>
+
+          <aside class="contact-info">
+            <h3>Parla direttamente con me</h3>
+            <ul class="contact-info__list">
+              <li>
+                <span class="contact-info__label">Telefono</span>
+                <a href="tel:+393519878991">351 987 8991</a>
+              </li>
+              <li>
+                <span class="contact-info__label">Email</span>
+                <a href="mailto:info@medistn.it">info@medistn.it</a>
+              </li>
+              <li>
+                <span class="contact-info__label">Indirizzo</span>
+                <span>Via Vittoria 11, 38049<br />Altopiano della Vigolana (TN)</span>
+              </li>
+            </ul>
+            <a href="https://wa.me/393519878991" class="btn btn--whatsapp" target="_blank" rel="noopener">Scrivimi su WhatsApp</a>
+          </aside>
         </div>
       </div>
     </section>
@@ -180,7 +219,17 @@
 
   <footer class="site-footer">
     <div class="container site-footer__inner">
-      <p>&copy; <span id="year"></span> Matteo Cognome. Tutti i diritti riservati.</p>
+      <div class="site-footer__brand">
+        <span class="brand__mark">M<span class="brand__accent">e</span>diS</span>
+        <p>Lavavetri · Applicatore pubblicitario · Riqualificatore di interni</p>
+      </div>
+      <div class="site-footer__legal">
+        <p>Deromedis Matteo — Via Vittoria 11, 38049 Altopiano della Vigolana (TN)</p>
+        <p>P. IVA 02581560220 · C.F. DRMMTT89T15L378F · SDI USAL8PV</p>
+      </div>
+    </div>
+    <div class="container site-footer__bottom">
+      <p>&copy; <span id="year"></span> MediS. Tutti i diritti riservati.</p>
       <a href="#top" class="site-footer__top">Torna su ↑</a>
     </div>
   </footer>
