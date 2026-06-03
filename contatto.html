@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contatti di Matteo Deromedis — MediS. Salva il contatto, chiama, scrivi su WhatsApp." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <title>MediS · Matteo Deromedis — Contatti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Caveat:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: #161616;
+      --surface-2: #1f1f1f;
+      --text: #f4f4f4;
+      --muted: #9aa0a6;
+      --border: #2a2a2a;
+      --accent: #1fb6ab;
+      --whatsapp: #25d366;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background:
+        radial-gradient(circle at 50% -10%, rgba(31,182,171,0.18), transparent 55%),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 28px 18px 48px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .card {
+      width: 100%;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* Logo */
+    .logo {
+      width: 132px;
+      height: 132px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Caveat", cursive;
+      font-size: 3.4rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 40px rgba(31,182,171,0.18);
+    }
+    .logo .accent { color: var(--accent); }
+
+    .name { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.01em; }
+    .role { color: var(--accent); font-weight: 600; font-size: 0.95rem; margin-top: 4px; }
+    .tagline { color: var(--muted); font-size: 0.92rem; margin-top: 10px; line-height: 1.5; }
+
+    /* Pulsante principale */
+    .btn-primary {
+      width: 100%;
+      margin-top: 26px;
+      padding: 16px;
+      border-radius: 14px;
+      background: var(--accent);
+      color: #04201e;
+      font-weight: 700;
+      font-size: 1.02rem;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      transition: transform 0.15s ease, filter 0.15s ease;
+    }
+    .btn-primary:active { transform: scale(0.98); }
+    .btn-primary svg { width: 22px; height: 22px; }
+
+    /* Griglia azioni */
+    .actions {
+      width: 100%;
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .action {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: border-color 0.15s ease, transform 0.15s ease;
+    }
+    .action:active { transform: scale(0.97); }
+    .action:hover { border-color: var(--accent); }
+    .action__icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(31,182,171,0.12);
+      color: var(--accent);
+    }
+    .action--whatsapp .action__icon { background: rgba(37,211,102,0.14); color: var(--whatsapp); }
+    .action__icon svg { width: 22px; height: 22px; }
+
+    /* Servizi */
+    .services {
+      width: 100%;
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+    .chip {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.82rem;
+      padding: 7px 14px;
+      border-radius: 999px;
+    }
+
+    /* Dettagli contatto */
+    .details {
+      width: 100%;
+      margin-top: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .detail {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 15px 18px;
+      text-decoration: none;
+      color: var(--text);
+      text-align: left;
+    }
+    .detail + .detail { border-top: 1px solid var(--border); }
+    .detail__icon { color: var(--accent); flex-shrink: 0; }
+    .detail__icon svg { width: 20px; height: 20px; display: block; }
+    .detail__label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .detail__value { font-size: 0.95rem; font-weight: 500; }
+
+    /* Link al sito */
+    .site-link {
+      margin-top: 22px;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+    }
+
+    .footer-legal {
+      margin-top: 26px;
+      color: #6b7177;
+      font-size: 0.72rem;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="logo">M<span class="accent">e</span>diS</div>
+    <h1 class="name">Matteo Deromedis</h1>
+    <p class="role">MediS</p>
+    <p class="tagline">Lavavetri · Applicatore pubblicitario<br />Riqualificatore di interni</p>
+
+    <!-- Salva contatto (vCard) -->
+    <a class="btn-primary" href="matteo-deromedis.vcf" download="Matteo-Deromedis.vcf">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+      Salva il contatto
+    </a>
+
+    <!-- Azioni rapide -->
+    <div class="actions">
+      <a class="action" href="tel:+393519878991">
+        <span class="action__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+        Chiama
+      </a>
+      <a class="action action--whatsapp" href="https://wa.me/393519878991" target="_blank" rel="noopener">
+        <span class="action__icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.821 9.821 0 0 0 1.523 5.26l-.999 3.648 3.465-.807zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413z"/></svg></span>
+        WhatsApp
+      </a>
+      <a class="action" href="mailto:info@medistn.it">
+        <span class="action__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></span>
+        Email
+      </a>
+      <a class="action" href="https://maps.google.com/?q=Via+Vittoria+11,+38049+Altopiano+della+Vigolana+TN" target="_blank" rel="noopener">
+        <span class="action__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        Indicazioni
+      </a>
+    </div>
+
+    <!-- Servizi -->
+    <div class="services">
+      <span class="chip">Lavavetri</span>
+      <span class="chip">Pubblicità</span>
+      <span class="chip">Interni</span>
+    </div>
+
+    <!-- Dettagli -->
+    <div class="details">
+      <a class="detail" href="tel:+393519878991">
+        <span class="detail__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+        <span><span class="detail__label">Telefono</span><br /><span class="detail__value">351 987 8991</span></span>
+      </a>
+      <a class="detail" href="mailto:info@medistn.it">
+        <span class="detail__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></span>
+        <span><span class="detail__label">Email</span><br /><span class="detail__value">info@medistn.it</span></span>
+      </a>
+      <a class="detail" href="https://maps.google.com/?q=Via+Vittoria+11,+38049+Altopiano+della+Vigolana+TN" target="_blank" rel="noopener">
+        <span class="detail__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <span><span class="detail__label">Indirizzo</span><br /><span class="detail__value">Via Vittoria 11, 38049<br />Altopiano della Vigolana (TN)</span></span>
+      </a>
+    </div>
+
+    <a class="site-link" href="index.html">Scopri tutti i servizi →</a>
+
+    <p class="footer-legal">
+      Deromedis Matteo — P. IVA 02581560220<br />
+      C.F. DRMMTT89T15L378F · SDI USAL8PV
+    </p>
+  </main>
+</body>
+</html>

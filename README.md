@@ -10,11 +10,23 @@ Tema scuro con accento turchese, coerente con il logo e il biglietto da visita.
 
 ```
 .
-├── index.html    # Contenuto e struttura del sito
-├── styles.css    # Stile (tema scuro brand MediS, responsive)
-├── script.js     # Menu mobile, validazione form, interazioni
+├── index.html              # Sito completo (servizi, chi sono, contatti)
+├── contatto.html           # Biglietto da visita digitale (target del tag NFC)
+├── matteo-deromedis.vcf    # vCard scaricabile ("Salva il contatto")
+├── styles.css              # Stile (tema scuro brand MediS, responsive)
+├── script.js               # Menu mobile, validazione form, interazioni
 └── README.md
 ```
+
+## Biglietto da visita digitale (NFC)
+
+La pagina `contatto.html` è pensata come destinazione del **tag NFC**: si apre
+su smartphone con i pulsanti rapidi (Salva contatto, Chiama, WhatsApp, Email,
+Indicazioni). Il pulsante **"Salva il contatto"** scarica `matteo-deromedis.vcf`,
+che si aggiunge in rubrica con un tap — senza bisogno del QR code.
+
+Una volta online, l'indirizzo da impostare sul tag NFC sarà:
+`https://mattedero-cmd.github.io/Sito-medis/contatto.html`
 
 ## Contenuti del sito
 
