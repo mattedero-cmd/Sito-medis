@@ -10,23 +10,33 @@ Tema scuro con accento turchese, coerente con il logo e il biglietto da visita.
 
 ```
 .
-├── index.html              # Sito completo (servizi, chi sono, contatti)
-├── contatto.html           # Biglietto da visita digitale (target del tag NFC)
-├── matteo-deromedis.vcf    # vCard scaricabile ("Salva il contatto")
-├── styles.css              # Stile (tema scuro brand MediS, responsive)
-├── script.js               # Menu mobile, validazione form, interazioni
-└── README.md
+├── index.html                  # Home: scheda contatti (pulsanti rapidi + servizi)
+├── lavavetri-*.html            # Pagine SEO per zona (generate)
+├── pulizia-pannelli-fotovoltaici-trentino.html  # Pagina SEO fotovoltaico (generata)
+├── build_seo_pages.py          # Genera le pagine SEO per zona + sitemap.xml
+├── zone.css                    # Stile delle pagine SEO e della 404
+├── 404.html                    # Pagina "non trovata"
+├── contatto.html               # Redirect alla home (vecchio indirizzo del tag NFC)
+├── sito.html                   # Vecchio sito completo (noindex, non collegato)
+├── styles.css / script.js      # Stile e script di sito.html
+├── matteo-deromedis.vcf        # vCard scaricabile ("Salva contatto")
+├── logo.png
+├── sitemap.xml / robots.txt / CNAME
+└── GUIDA-SEO.md
 ```
+
+Le pagine per zona **non vanno modificate a mano**: modifica `build_seo_pages.py`
+e rigenera con `python3 build_seo_pages.py`.
 
 ## Biglietto da visita digitale (NFC)
 
-La pagina `contatto.html` è pensata come destinazione del **tag NFC**: si apre
-su smartphone con i pulsanti rapidi (Salva contatto, Chiama, WhatsApp, Email,
-Indicazioni). Il pulsante **"Salva il contatto"** scarica `matteo-deromedis.vcf`,
-che si aggiunge in rubrica con un tap — senza bisogno del QR code.
+La home (`index.html`) è la scheda contatti ed è la destinazione del **tag NFC**:
+si apre su smartphone con i pulsanti rapidi (Chiama, WhatsApp, Email, Salva contatto).
+Il pulsante **"Salva contatto"** scarica `matteo-deromedis.vcf`, che si aggiunge
+in rubrica con un tap.
 
-Una volta online, l'indirizzo da impostare sul tag NFC sarà:
-`https://mattedero-cmd.github.io/Sito-medis/contatto.html`
+Indirizzo da impostare sul tag NFC: `https://medistn.it/`
+(il vecchio `https://medistn.it/contatto.html` reindirizza comunque alla home).
 
 ## Contenuti del sito
 

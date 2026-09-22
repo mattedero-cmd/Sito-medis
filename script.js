@@ -1,5 +1,6 @@
 // Anno corrente nel footer
-document.getElementById('year').textContent = new Date().getFullYear();
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 // Menu mobile
 const toggle = document.querySelector('.nav__toggle');
@@ -73,7 +74,6 @@ const observer = new IntersectionObserver(
       if (entry.isIntersecting) {
         const id = entry.target.getAttribute('id');
         navLinks.forEach((link) => {
-          link.style.color = link.getAttribute('href') === `#${id}` ? '' : '';
           link.classList.toggle('is-active', link.getAttribute('href') === `#${id}`);
         });
       }

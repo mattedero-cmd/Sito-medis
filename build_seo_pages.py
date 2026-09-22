@@ -3,6 +3,7 @@
 Esegui:  python3 build_seo_pages.py
 """
 import json
+from datetime import date
 
 SITE = "https://medistn.it"
 
@@ -27,6 +28,11 @@ TEMPLATE = """<!DOCTYPE html>
   <meta property="og:title" content="__TITLE__" />
   <meta property="og:description" content="__DESC__" />
   <meta property="og:image" content="__SITE__/logo.png" />
+  <meta property="og:image:alt" content="Logo MediS" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="__TITLE__" />
+  <meta name="twitter:description" content="__DESC__" />
+  <meta name="twitter:image" content="__SITE__/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Caveat:wght@700&display=swap" rel="stylesheet" />
@@ -36,7 +42,7 @@ TEMPLATE = """<!DOCTYPE html>
 <body>
   <div class="wrap">
     <header class="top">
-      <a class="brand" href="/"><img src="logo.png" alt="MediS" /><span>M<b>e</b>diS</span></a>
+      <a class="brand" href="/"><img src="logo.png" alt="MediS" width="254" height="230" /><span>M<b>e</b>diS</span></a>
       <a class="top__home" href="/">← Home</a>
     </header>
 
@@ -183,12 +189,19 @@ def jsonld(page):
         "url": f'{SITE}/{page["slug"]}.html',
         "provider": {
             "@type": "LocalBusiness",
+            "@id": f"{SITE}/#business",
             "name": "MediS",
             "telephone": "+39 351 987 8991",
             "email": "info@medistn.it",
             "url": f"{SITE}/",
             "image": f"{SITE}/logo.png",
             "areaServed": "Trentino",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Altopiano della Vigolana",
+                "addressRegion": "TN",
+                "addressCountry": "IT",
+            },
         },
     }, ensure_ascii=False, indent=2)
 
@@ -197,7 +210,6 @@ def zones_links(current):
     for q in PAGES:
         if q["slug"] == current:
             continue
-        label = q["h1"].replace("Lavavetri ", "").replace("all'", "").replace("a ", "").strip()
         links.append(f'<a href="{q["slug"]}.html">{q["h1"]}</a>')
     return "\n        ".join(links)
 
@@ -229,8 +241,9 @@ def main():
 
     # Sitemap con home + tutte le pagine zona
     urls = [f"{SITE}/"] + [f'{SITE}/{p["slug"]}.html' for p in PAGES]
+    today = date.today().isoformat()
     items = "\n".join(
-        f"  <url>\n    <loc>{u}</loc>\n    <changefreq>monthly</changefreq>\n"
+        f"  <url>\n    <loc>{u}</loc>\n    <lastmod>{today}</lastmod>\n    <changefreq>monthly</changefreq>\n"
         f"    <priority>{'1.0' if u.endswith('/') else '0.8'}</priority>\n  </url>"
         for u in urls
     )
