@@ -337,7 +337,9 @@
     .head.reveal { animation-delay: .05s; }
     .actions.reveal { animation-delay: .15s; }
     .section-head.reveal { animation-delay: .22s; }
-    .areas.reveal { animation-delay: .6s; }
+    .about-head.reveal, .about.reveal { animation-delay: .55s; }
+    .faq-head.reveal, .faq.reveal, .faq__note.reveal { animation-delay: .6s; }
+    .areas.reveal { animation-delay: .65s; }
     .footer-legal.reveal { animation-delay: .65s; }
 
     /* ===== Logo: movimento autonomo (galleggia e ondeggia da solo) ===== */
@@ -374,6 +376,40 @@
 
 
     /* ===== Rispetto delle preferenze di movimento ridotto ===== */
+    /* ===== Chi sono ===== */
+    .about { display: grid; gap: 16px; }
+    .about__text { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 24px; background-image: linear-gradient(180deg, var(--sheen), transparent); }
+    .about__text p { color: var(--muted); font-size: 0.98rem; line-height: 1.7; }
+    .about__text p + p { margin-top: 12px; }
+    .about__text .about__lead { color: var(--text); font-size: 1.12rem; font-weight: 600; line-height: 1.5; }
+    .about__sign { display: flex; align-items: center; gap: 12px; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border); }
+    .about__sign img { width: 48px; height: 48px; object-fit: contain; -webkit-mask-image: radial-gradient(circle, var(--mask) 66%, transparent 71%); mask-image: radial-gradient(circle, var(--mask) 66%, transparent 71%); }
+    .about__sign strong { display: block; font-size: 0.95rem; }
+    .about__sign span { color: var(--muted); font-size: 0.85rem; }
+    .pillars { list-style: none; display: grid; gap: 12px; }
+    .pillars li { display: flex; gap: 16px; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 20px; }
+    .pillars svg { width: 24px; height: 24px; color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+    .pillars strong { display: block; font-weight: 600; }
+    .pillars span { display: block; color: var(--muted); font-size: 0.92rem; line-height: 1.55; margin-top: 4px; }
+
+    /* ===== Domande frequenti ===== */
+    .faq { display: grid; gap: 12px; }
+    .faq details { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; transition: border-color .15s ease; }
+    .faq details[open], .faq details:hover { border-color: var(--accent); }
+    .faq summary {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      min-height: 56px; padding: 16px 20px; cursor: pointer; list-style: none;
+      font-weight: 600; font-size: 1rem; line-height: 1.4;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary svg { width: 20px; height: 20px; color: var(--accent); flex-shrink: 0; transition: transform .2s ease; }
+    .faq details[open] summary svg { transform: rotate(45deg); }
+    .faq summary:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; border-radius: 16px; }
+    .faq__a { padding: 0 20px 20px; color: var(--muted); font-size: 0.95rem; line-height: 1.7; }
+    .faq__a p + p { margin-top: 8px; }
+    .faq__note { margin-top: 16px; text-align: center; color: var(--muted); font-size: 0.92rem; }
+    .faq__note a { color: var(--accent); font-weight: 600; }
+
     /* ===== Computer: finestra al centro, scheda più larga ===== */
     @media (min-width: 768px) {
       .modal-overlay { align-items: center; }
@@ -389,6 +425,7 @@
       .services { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
       .services .service:first-child { grid-column: 1 / -1; }
       .services .service:first-child .service__excerpt { -webkit-line-clamp: 3; }
+      .about { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: start; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -446,6 +483,63 @@
       <h2>Cosa faccio</h2>
     </div>
     <div class="services" id="services"></div>
+
+    <!-- Chi sono -->
+    <div class="section-head about-head reveal" id="chi-sono">
+      <span class="line"></span>
+      <h2>Chi sono</h2>
+    </div>
+    <div class="about reveal">
+      <div class="about__text">
+        <p class="about__lead">Mi chiamo Matteo Deromedis e con MediS mi occupo di vetri e superfici: li pulisco, li proteggo e li rinnovo.</p>
+        <p>Lavoro per case, negozi, uffici e condomini in tutto il Trentino, partendo dall’Altopiano della Vigolana. Ogni lavoro lo seguo io, dal primo messaggio fino alla fine: parli sempre con la stessa persona.</p>
+        <p>Su un vetro si vede tutto: un alone, una goccia, un angolo dimenticato. Per questo uso attrezzatura professionale e lavoro con calma e precisione, finché il risultato è davvero pulito.</p>
+        <p>Oltre alla pulizia applico pellicole a controllo solare, pellicole decorative e grafiche su vetrine e veicoli: so come trattare una superficie prima di lavorarci sopra.</p>
+        <div class="about__sign">
+          <img src="../../logo.png" alt="" width="48" height="48" />
+          <div><strong>Matteo Deromedis</strong><span>Titolare di MediS</span></div>
+        </div>
+      </div>
+      <ul class="pillars">
+        <li><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><div><strong>Un solo referente</strong><span>Mi contatti, vengo io, faccio io il lavoro. Nessun passaggio di mano.</span></div></li>
+        <li><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><div><strong>Prezzo chiaro prima di iniziare</strong><span>Preventivo concordato in anticipo e senza impegno. Nessuna sorpresa a lavoro finito.</span></div></li>
+        <li><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><div><strong>Attrezzatura professionale</strong><span>Gli strumenti giusti per un risultato senza aloni, anche su vetrate grandi e pannelli.</span></div></li>
+        <li><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><div><strong>Una volta o tutto l’anno</strong><span>Interventi singoli oppure pulizie programmate per attività e condomini.</span></div></li>
+      </ul>
+    </div>
+
+    <!-- Domande frequenti -->
+    <div class="section-head faq-head reveal">
+      <span class="line"></span>
+      <h2>Domande frequenti</h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>Ogni quanto vanno puliti i pannelli fotovoltaici? <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="faq__a"><p>Dipende da dove si trova l’impianto: vicino a strade, campi, alberi o stalle lo sporco si accumula prima. La pioggia da sola non basta, anzi spesso lascia un velo di polvere e calcare.</p><p>Di solito conviene un controllo una o due volte l’anno. Se la produzione cala senza un motivo evidente, è il momento di pulirli.</p></div>
+      </details>
+      <details>
+        <summary>Perché sui vetri restano gli aloni? <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="faq__a"><p>Le cause più comuni sono il detergente sbagliato, l’acqua calcarea e la pulizia sotto il sole, che asciuga il vetro troppo in fretta.</p><p>Con il tergivetro professionale e il metodo giusto il vetro resta trasparente, senza righe né gocce sui bordi.</p></div>
+      </details>
+      <details>
+        <summary>Fai pulizie periodiche per negozi e condomini? <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="faq__a"><p>Sì. Concordiamo insieme la frequenza, per esempio ogni mese o a ogni cambio di stagione, e organizzo io gli interventi.</p></div>
+      </details>
+      <details>
+        <summary>Pellicola o sostituzione: quando conviene la pellicola? <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="faq__a"><p>Quando l’arredo o il vetro sono ancora buoni ma vecchi nell’aspetto, o lasciano passare troppo calore.</p><p>Una pellicola decorativa rinnova porte, banconi e pareti senza smontare nulla; una pellicola a controllo solare riduce calore e abbagliamento. Si applica in poco tempo e con molti meno disagi di un cambio completo.</p></div>
+      </details>
+      <details>
+        <summary>Quanto costa un intervento? <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="faq__a"><p>Dipende da quanti vetri ci sono, da quanto sono grandi e da come si raggiungono. Mandami qualche foto su WhatsApp e ti rispondo con un prezzo chiaro, senza impegno.</p></div>
+      </details>
+      <details>
+        <summary>Lavori solo con le aziende? <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="faq__a"><p>No, lavoro sia con privati sia con attività: dalla finestra di casa alla vetrina del negozio, fino alle vetrate di uffici e showroom.</p></div>
+      </details>
+    </div>
+    <p class="faq__note reveal">Hai un’altra domanda? <a href="https://wa.me/393519878991?text=Ciao%20Matteo%2C%20ho%20una%20domanda%3A%20" target="_blank" rel="noopener">Scrivimi su WhatsApp</a></p>
 
     <nav class="areas reveal" aria-labelledby="zone-title">
       <h2 id="zone-title">Servizio <strong>lavavetri</strong> in tutto il <strong>Trentino</strong></h2>
