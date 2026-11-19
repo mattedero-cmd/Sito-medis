@@ -34,8 +34,8 @@ jobs:
           # Abilita automaticamente Pages se non è già attivo
           enablement: true
 
-      - name: Escludi le pagine di prova (non vanno pubblicate)
-        run: rm -rf prove .hallmark
+      - name: Escludi pagine di prova e strumenti (non vanno pubblicati)
+        run: rm -rf prove .hallmark .claude
 
       - name: Carica i file del sito
         uses: actions/upload-pages-artifact@v3
