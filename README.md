@@ -28,13 +28,18 @@ che si aggiunge in rubrica con un tap — senza bisogno del QR code.
 Una volta online, l'indirizzo da impostare sul tag NFC sarà:
 `https://mattedero-cmd.github.io/Sito-medis/contatto.html`
 
-## Contenuti del sito
+## Contenuti del sito (index.html)
 
-- **Hero** — presentazione dell'attività e call-to-action
-- **Servizi** — Lavavetri · Wrapping · Riqualificazione interni
-- **Chi sono** — presentazione di Matteo Deromedis
-- **Perché MediS** — i punti di forza
-- **Contatti** — form di richiesta preventivo + contatti diretti e WhatsApp
+- **Hero** — "Lavavetri in Trentino", pulsanti Chiama/WhatsApp e finestra
+  interattiva prima/dopo (si trascina per "pulire" il vetro)
+- **Servizi** — Lavavetri in evidenza + Pellicole e grafiche (interni,
+  controllo solare, auto aziendali, wrapping)
+- **Come lavoro** — 3 passi e punti di forza
+- **Zone** — link alle pagine per città
+- **Instagram** e **Contatti** (Chiama, WhatsApp, Email, Salva contatto, Recensione)
+- Su telefono, scorrendo compare una barra fissa con Chiama/WhatsApp
+
+Il pulsante recensioni si attiva inserendo il link in `REVIEW_URL` (in fondo a `index.html`).
 
 ## Dati attività
 
