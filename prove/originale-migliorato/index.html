@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lavavetri in Trentino — MediS | Pulizia vetri, vetrine e pannelli fotovoltaici</title>
-  <meta name="description" content="Lavavetri professionale in tutto il Trentino: pulizia di vetrate, vetrine, finestre e pannelli fotovoltaici per privati e aziende. MediS di Matteo Deromedis — Trento, Rovereto, Pergine, Altopiano della Vigolana. Chiama per un preventivo." />
+  <title>Lavavetri in Trentino | MediS: pulizia vetri, vetrine e pannelli fotovoltaici</title>
+  <meta name="description" content="Lavavetri professionale in tutto il Trentino: pulizia di vetrate, vetrine, finestre e pannelli fotovoltaici per privati e aziende. MediS di Matteo Deromedis , Trento, Rovereto, Pergine, Altopiano della Vigolana. Chiama per un preventivo." />
   <meta name="keywords" content="lavavetri Trentino, pulizia vetri Trento, lavavetri Trento, pulizia vetrine, pulizia pannelli fotovoltaici, lavavetri Rovereto, lavavetri Pergine" />
   <meta name="theme-color" content="#07100f" />
   <link rel="canonical" href="https://medistn.it/" />
@@ -20,14 +20,14 @@
   <meta property="og:site_name" content="MediS" />
   <meta property="og:locale" content="it_IT" />
   <meta property="og:url" content="https://medistn.it/" />
-  <meta property="og:title" content="Lavavetri in Trentino — MediS" />
+  <meta property="og:title" content="Lavavetri in Trentino | MediS" />
   <meta property="og:description" content="Pulizia professionale di vetri, vetrine, finestre e pannelli fotovoltaici in tutto il Trentino. Preventivi rapidi." />
   <meta property="og:image" content="https://medistn.it/logo.png" />
   <meta property="og:image:alt" content="Logo MediS" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lavavetri in Trentino — MediS" />
+  <meta name="twitter:title" content="Lavavetri in Trentino | MediS" />
   <meta name="twitter:description" content="Pulizia professionale di vetri, vetrine e pannelli fotovoltaici in tutto il Trentino. Preventivi rapidi." />
   <meta name="twitter:image" content="https://medistn.it/logo.png" />
 
@@ -81,6 +81,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Caveat:wght@700&display=swap" rel="stylesheet" />
   <style>
+    /* Hallmark · redesign: polish · shape: kept (digital business card) · genre: atmospheric · theme: none, the MediS system kept · job: hire · v2.0.0
+     * hero: kept (logo, name, actions) · nav: none (one screen card) · footer: kept (legal lines) · imagery: the logo · signature: the floating MediS logo over a turquoise aurora */
+    /* Hallmark · pre-emit critique: P3 H4 E4 S4 R4 V3 · weakest: V, the layout is the owner's and stays; only what the gates name was fixed */
+    /* Hallmark · waive 24b · spacing rounded to 4px where invisible, the card's own rhythm kept elsewhere · the owner asked to improve the card without changing it */
+    /* Hallmark · waive 26b · no disabled control on the page · Chiama, WhatsApp, Email e Salva contatto are always active */
+    /* Hallmark · dismissed 3 · the turquoise left edge on each service is the MediS card's own mark, kept at the owner's request */
+    /* Hallmark · dismissed 29 · the blurred scrim sits only behind the service dialog, to show the page is paused */
     :root {
       --bg: #07100f;
       --surface: #121b1a;
@@ -91,20 +98,40 @@
       --ring: #7fe3da;
       --border: #25302f;
       --accent: #20c5b8;
+      --on-accent: #042422;
+      --bg-top: #000;
+      --bg-mid: #04100e;
+      --mask: #000;
+      --logo-plate: #0a0a0a;
+      --scrim: rgba(0, 0, 0, 0.7);
+      --modal-bg: #0c1413;
+      --dot: rgba(255, 255, 255, 0.04);
+      --sheen: rgba(255, 255, 255, 0.05);
+      --shine: rgba(255, 255, 255, 0.45);
+      --aurora-1: rgba(32, 197, 184, 0.26);
+      --aurora-2: rgba(32, 197, 184, 0.20);
+      --aurora-3: rgba(32, 197, 184, 0.15);
+      --accent-glow: rgba(32, 197, 184, 0.3);
+      --accent-glow-strong: rgba(32, 197, 184, 0.45);
+      --accent-edge: rgba(32, 197, 184, 0.25);
+      --lift-shadow: rgba(0, 0, 0, 0.4);
+      --font-body: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --font-logo: "Caveat", cursive;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { overflow-x: clip; }
     html { background: var(--bg); }  /* niente fondo bianco in fondo alla pagina */
     :focus-visible { outline: 3px solid var(--ring); outline-offset: 3px; }
     body {
-      font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      font-family: var(--font-body);
       color: var(--text);
       background:
-        linear-gradient(180deg, #000 0%, #000 18%, #04100e 45%, var(--bg) 78%);
+        linear-gradient(180deg, var(--bg-top) 0%, var(--bg-top) 18%, var(--bg-mid) 45%, var(--bg) 78%);
       background-attachment: fixed;
       min-height: 100vh;
       display: flex;
       justify-content: center;
-      padding: 30px 18px 56px;
+      padding: 32px 16px 56px;
       position: relative;
       -webkit-font-smoothing: antialiased;
     }
@@ -132,24 +159,24 @@
     }
     .logo img {
       width: 100%; height: 100%; object-fit: contain;
-      -webkit-mask-image: radial-gradient(circle, #000 74%, transparent 99%);
-      mask-image: radial-gradient(circle, #000 74%, transparent 99%);
+      -webkit-mask-image: radial-gradient(circle, var(--mask) 74%, transparent 99%);
+      mask-image: radial-gradient(circle, var(--mask) 74%, transparent 99%);
     }
     .logo .logo-fallback {
       display: none;
-      font-family: "Caveat", cursive; font-size: 3.6rem; font-weight: 700; color: #fff;
+      font-family: var(--font-logo); font-size: 3.6rem; font-weight: 700; color: var(--text);
     }
     .logo.no-img { width: 138px; height: 138px; }
-    .logo.no-img .logo-float { background: #0a0a0a; border: 3px solid #fff; border-radius: 50%; }
+    .logo.no-img .logo-float { background: var(--logo-plate); border: 3px solid var(--text); border-radius: 50%; }
     .logo.no-img img { display: none; }
     .logo.no-img .logo-fallback { display: flex; }
     .logo .accent { color: var(--accent); }
-    .name { font-size: 1.75rem; font-weight: 800; line-height: 1.15; margin-top: 20px; letter-spacing: -0.01em; }
-    .name span { display: block; font-size: 1.05rem; font-weight: 600; color: var(--accent); margin-top: 6px; letter-spacing: 0; }
-    .tagline { color: var(--muted); font-size: 0.95rem; margin-top: 10px; max-width: 30em; line-height: 1.55; }
+    .name { text-wrap: balance; font-size: 1.75rem; font-weight: 800; line-height: 1.15; margin-top: 20px; letter-spacing: -0.01em; }
+    .name span { display: block; font-size: 1.05rem; font-weight: 600; color: var(--accent); margin-top: 8px; letter-spacing: 0; }
+    .tagline { color: var(--muted); font-size: 0.95rem; margin-top: 12px; max-width: 30em; line-height: 1.55; }
     .location {
-      display: inline-flex; align-items: center; gap: 6px;
-      margin-top: 14px; padding: 6px 14px;
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 16px; padding: 8px 16px;
       border: 1px solid var(--border); border-radius: 999px;
       color: var(--muted); font-size: 0.85rem; text-decoration: none;
       transition: color .2s ease, border-color .2s ease;
@@ -158,10 +185,10 @@
     .location svg { width: 15px; height: 15px; color: var(--accent); }
 
     /* Pulsanti azione */
-    .actions { margin-top: 26px; display: flex; flex-direction: column; gap: 13px; }
+    .actions { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
     .btn {
-      display: flex; align-items: center; justify-content: center; gap: 10px;
-      padding: 17px; border-radius: 16px;
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      padding: 16px; border-radius: 16px;
       font-weight: 600; font-size: 1.02rem;
       text-decoration: none; color: var(--text);
       border: 1px solid var(--border);
@@ -172,17 +199,17 @@
     .btn:hover { border-color: var(--accent); }
     .btn svg { width: 21px; height: 21px; }
     .btn--primary {
-      background: var(--accent); color: #042422; border-color: transparent;
-      box-shadow: 0 10px 30px rgba(32,197,184,0.3);
+      background: var(--accent); color: var(--on-accent); border-color: transparent;
+      box-shadow: 0 10px 30px var(--accent-glow);
     }
     .btn--primary:hover { filter: brightness(1.05); border-color: transparent; }
 
     /* Sezione servizi */
-    .section-head { display: flex; align-items: center; gap: 16px; margin: 42px 0 22px; }
+    .section-head { display: flex; align-items: center; gap: 16px; margin: 40px 0 24px; }
     .section-head .line { flex: 1; height: 2px; background: linear-gradient(90deg, transparent, var(--accent)); border-radius: 2px; }
-    .section-head h2 { color: var(--accent); font-size: 1.7rem; font-weight: 800; white-space: nowrap; }
+    .section-head h2 { text-wrap: balance; color: var(--accent); font-size: 1.7rem; font-weight: 800; white-space: nowrap; }
 
-    .services { display: flex; flex-direction: column; gap: 14px; }
+    .services { display: flex; flex-direction: column; gap: 16px; }
     .service {
       width: 100%;
       text-align: left;
@@ -190,7 +217,7 @@
       border: 1px solid var(--border);
       border-left: 3px solid var(--accent);
       border-radius: 14px;
-      padding: 18px;
+      padding: 20px;
       cursor: pointer;
       color: var(--text);
       font-family: inherit;
@@ -205,33 +232,25 @@
     .service__chev { color: var(--muted); display: flex; }
     .service__chev svg { width: 20px; height: 20px; }
     .service__excerpt {
-      margin-top: 10px; color: var(--muted); font-size: 0.92rem; line-height: 1.55;
+      margin-top: 12px; color: var(--muted); font-size: 0.92rem; line-height: 1.55;
       display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
     }
 
-    /* Dettagli contatto */
-    .details { margin-top: 30px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
-    .detail { display: flex; align-items: center; gap: 14px; padding: 15px 18px; text-decoration: none; color: var(--text); }
-    .detail + .detail { border-top: 1px solid var(--border); }
-    .detail__icon { color: var(--accent); flex-shrink: 0; }
-    .detail__icon svg { width: 20px; height: 20px; display: block; }
-    .detail__label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
-    .detail__value { font-size: 0.95rem; font-weight: 500; }
 
     .site-link { display: block; text-align: center; margin-top: 24px; color: var(--accent); font-weight: 600; font-size: 0.95rem; text-decoration: none; }
-    .areas { margin-top: 30px; text-align: center; color: var(--muted); font-size: 0.85rem; line-height: 1.7; }
+    .areas { margin-top: 32px; text-align: center; color: var(--muted); font-size: 0.85rem; line-height: 1.7; }
     .areas strong { color: var(--accent); font-weight: 600; }
     .areas h2 { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 12px; }
     .zones { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
     .zones a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); color: var(--text); text-decoration: none; font-size: 0.88rem; transition: border-color .15s ease, color .15s ease; }
     .zones a:hover { color: var(--accent); border-color: var(--accent); }
     .areas p { margin-top: 12px; }
-    .footer-legal { margin-top: 18px; text-align: center; color: var(--faint); font-size: 0.72rem; line-height: 1.6; }
+    .footer-legal { margin-top: 20px; text-align: center; color: var(--faint); font-size: 0.72rem; line-height: 1.6; }
 
     /* Modale servizio */
     .modal-overlay {
       position: fixed; inset: 0;
-      background: rgba(0,0,0,0.7);
+      background: var(--scrim);
       backdrop-filter: blur(4px);
       display: flex; align-items: flex-end; justify-content: center;
       padding: 16px;
@@ -242,10 +261,10 @@
     .modal-overlay.open { opacity: 1; visibility: visible; }
     .modal {
       width: 100%; max-width: 460px;
-      background: #0c1413;
+      background: var(--modal-bg);
       border: 1px solid var(--border);
       border-radius: 22px;
-      padding: 28px 24px 26px;
+      padding: 28px 24px;
       max-height: 86vh; overflow-y: auto;
       transform: translateY(20px);
       transition: transform 0.25s ease;
@@ -261,41 +280,43 @@
       font-size: 1.1rem; cursor: pointer;
       display: flex; align-items: center; justify-content: center;
     }
-    .modal__title { color: var(--accent); font-size: 1.5rem; font-weight: 800; margin-bottom: 14px; padding: 0 28px; }
+    .modal__title { color: var(--accent); font-size: 1.5rem; font-weight: 800; margin-bottom: 16px; padding: 0 28px; }
     .modal__desc { color: var(--text); font-size: 0.98rem; line-height: 1.6; }
     .modal__ig {
-      display: flex; align-items: center; justify-content: center; gap: 10px;
-      margin-top: 22px; padding: 15px; border-radius: 14px;
-      font-weight: 700; color: #fff; text-decoration: none;
-      background: linear-gradient(90deg, #f58529, #dd2a7b, #8134af, #515bd4);
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      margin-top: 24px; padding: 16px; border-radius: 14px;
+      font-weight: 700; color: var(--text); text-decoration: none;
+      background: var(--surface); border: 1px solid var(--border);
+      transition: border-color .15s ease;
     }
-    .modal__ig svg { width: 22px; height: 22px; }
-    .modal__cta { display: flex; align-items: center; justify-content: center; margin-top: 12px; min-height: 52px; border-radius: 14px; background: var(--accent); color: #042422; font-weight: 700; text-decoration: none; }
+    .modal__ig:hover { border-color: var(--accent); }
+    .modal__ig svg { width: 22px; height: 22px; color: var(--accent); }
+    .modal__cta { display: flex; align-items: center; justify-content: center; margin-top: 12px; min-height: 52px; border-radius: 14px; background: var(--accent); white-space: nowrap; color: var(--on-accent); font-weight: 700; text-decoration: none; }
     .modal__cta:hover { filter: brightness(1.06); }
     .modal__gallery {
-      margin-top: 18px; padding: 34px 18px;
+      margin-top: 20px; padding: 32px 20px;
       border: 1.5px dashed var(--border); border-radius: 16px;
       color: var(--muted); font-size: 0.9rem; line-height: 1.5;
     }
     .modal__gallery svg { width: 40px; height: 40px; color: var(--accent); margin-bottom: 12px; }
-    .modal__gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
+    .modal__gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
     .modal__gallery-grid img { width: 100%; border-radius: 14px; display: block; }
 
     /* ===== Texture di sfondo (lontana dal logo) ===== */
     body::before {
       content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
-      background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-image: radial-gradient(var(--dot) 1px, transparent 1px);
       background-size: 24px 24px;
-      -webkit-mask-image: radial-gradient(circle at 50% 65%, #000, transparent 80%);
-      mask-image: radial-gradient(circle at 50% 65%, #000, transparent 80%);
+      -webkit-mask-image: radial-gradient(circle at 50% 65%, var(--mask), transparent 80%);
+      mask-image: radial-gradient(circle at 50% 65%, var(--mask), transparent 80%);
     }
     /* Bagliori turchesi che si muovono lentamente (dinamismo) */
     body::after {
       content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
       background:
-        radial-gradient(38% 30% at 18% 70%, rgba(32,197,184,0.26), transparent 70%),
-        radial-gradient(42% 32% at 86% 50%, rgba(32,197,184,0.20), transparent 72%),
-        radial-gradient(55% 40% at 50% 100%, rgba(32,197,184,0.15), transparent 70%);
+        radial-gradient(38% 30% at 18% 70%, var(--aurora-1), transparent 70%),
+        radial-gradient(42% 32% at 86% 50%, var(--aurora-2), transparent 72%),
+        radial-gradient(55% 40% at 50% 100%, var(--aurora-3), transparent 70%);
       animation: aurora 24s ease-in-out infinite alternate;
     }
     @keyframes aurora {
@@ -303,28 +324,11 @@
       50%  { transform: translate3d(3%, -5%, 0) scale(1.14); opacity: 1; }
       100% { transform: translate3d(-3%, 3%, 0) scale(1.08); opacity: .85; }
     }
-    /* Orbite luminose che attraversano lo sfondo (movimento piu marcato) */
-    .bgfx { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
-    .bgfx span {
-      position: absolute; border-radius: 50%; filter: blur(70px); display: block;
-    }
-    .bgfx .orb1 {
-      width: 60vw; height: 60vw; left: -14vw; top: 34%;
-      background: radial-gradient(circle, rgba(32,197,184,0.26), transparent 68%);
-      animation: orb1 16s ease-in-out infinite alternate;
-    }
-    .bgfx .orb2 {
-      width: 52vw; height: 52vw; right: -16vw; top: 56%;
-      background: radial-gradient(circle, rgba(46,210,180,0.20), transparent 68%);
-      animation: orb2 19s ease-in-out infinite alternate;
-    }
-    @keyframes orb1 { from { transform: translate(0,0) scale(1); } to { transform: translate(16vw,-12vh) scale(1.15); } }
-    @keyframes orb2 { from { transform: translate(0,0) scale(1); } to { transform: translate(-16vw,9vh) scale(1.1); } }
 
     /* ===== Riflesso/sheen sulle superfici ===== */
-    .btn, .service, .details {
-      background-image: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0));
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+    .btn, .service {
+      background-image: linear-gradient(180deg, var(--sheen), transparent);
+      box-shadow: inset 0 1px 0 var(--sheen);
     }
 
     /* ===== Animazioni d'ingresso ===== */
@@ -333,7 +337,6 @@
     .head.reveal { animation-delay: .05s; }
     .actions.reveal { animation-delay: .15s; }
     .section-head.reveal { animation-delay: .22s; }
-    .details.reveal { animation-delay: .30s; }
     .areas.reveal { animation-delay: .6s; }
     .footer-legal.reveal { animation-delay: .65s; }
 
@@ -353,25 +356,22 @@
     /* ===== Pulsante principale: riflesso che scorre ===== */
     .btn--primary { position: relative; overflow: hidden; }
     .btn--primary::after {
-      content: ""; position: absolute; top: 0; bottom: 0; left: -160%; width: 55%;
-      background: linear-gradient(115deg, transparent, rgba(255,255,255,0.45), transparent);
-      transform: skewX(-18deg); animation: shine 1.6s ease-in-out .9s 1 both;
+      content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 55%;
+      background: linear-gradient(115deg, transparent, var(--shine), transparent);
+      transform: translateX(-160%) skewX(-18deg); animation: shine 1.6s ease-in-out .9s 1 both;
     }
-    @keyframes shine { 0% { left: -160%; } 55%,100% { left: 160%; } }
+    @keyframes shine { 0% { transform: translateX(-160%) skewX(-18deg); } 55%, 100% { transform: translateX(300%) skewX(-18deg); } }
     .btn:hover { transform: translateY(-2px); }
-    .btn--primary:hover { box-shadow: 0 14px 36px rgba(32,197,184,0.45); }
+    .btn--primary:hover { box-shadow: 0 14px 36px var(--accent-glow-strong); }
 
     /* ===== Servizi: micro-interazioni ===== */
     .service:hover {
       transform: translateY(-3px);
-      box-shadow: 0 14px 34px rgba(0,0,0,0.4), 0 0 0 1px rgba(32,197,184,0.25);
+      box-shadow: 0 14px 34px var(--lift-shadow), 0 0 0 1px var(--accent-edge);
     }
     .service__chev { transition: transform .2s ease, color .2s ease; }
     .service:hover .service__chev { transform: translateX(4px); color: var(--accent); }
 
-    /* ===== Righe contatto: hover ===== */
-    .detail { transition: background .2s ease; }
-    .detail:hover { background: rgba(32,197,184,0.07); }
 
     /* ===== Rispetto delle preferenze di movimento ridotto ===== */
     @media (prefers-reduced-motion: reduce) {
@@ -443,8 +443,9 @@
     </nav>
 
     <p class="footer-legal reveal">
-      Deromedis Matteo — P. IVA 02581560220<br />
-      C.F. DRMMTT89T15L378F · SDI USAL8PV
+      Deromedis Matteo<br />
+      P. IVA 02581560220<br />
+      C.F. DRMMTT89T15L378F, SDI USAL8PV
     </p>
   </main>
 
@@ -458,7 +459,7 @@
         <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
         Guarda i lavori su Instagram
       </a>
-      <a class="modal__cta" id="modalCta" target="_blank" rel="noopener">Chiedi un preventivo su WhatsApp</a>
+      <a class="modal__cta" id="modalCta" target="_blank" rel="noopener">Preventivo su WhatsApp</a>
       <div id="modalGallery"></div>
     </div>
   </div>
