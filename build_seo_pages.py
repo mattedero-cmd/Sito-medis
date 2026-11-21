@@ -278,7 +278,7 @@ PAGES = [
                 "<a href=\"https://coverstyl.com/it/collection/\" target=\"_blank\" rel=\"noopener\">Sfoglia tutte le finiture Cover Styl’</a> "
                 "per farti un’idea; al primo incontro le guardiamo insieme sul catalogo e scegli quella giusta per il tuo locale.")),
             ("Anche grandi cantieri", p(
-                "Grazie alla collaborazione diretta con Blu Sign, distributore Cover Styl’ nel Nord Italia, posso gestire "
+                "Grazie alla collaborazione diretta con Blu Sign, partner storico di Cover Styl’, posso gestire "
                 "anche cantieri di grandi dimensioni, come la riqualificazione di un albergo: camere, corridoi, porte, "
                 "reception e aree comuni, con materiali disponibili nelle quantità che servono.")),
             ("Per chi lavoro", ul([
