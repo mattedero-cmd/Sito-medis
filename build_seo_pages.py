@@ -126,10 +126,10 @@ PAGES = [
     {
         "slug": "lavavetri-trento",
         "place": "Trento",
-        "h1": "Pulizia vetrate per aziende a Trento",
+        "h1": "Pulizia vetri e vetrate per aziende a Trento",
         "badge": "Trento e dintorni",
-        "title": "Pulizia vetrate per aziende a Trento | MediS",
-        "desc": "Pulizia di vetrate, vetrine e facciate in vetro per negozi, showroom, hotel e aziende a Trento. Metodo classico, lavori in quota, anche fuori orario.",
+        "title": "Pulizia vetri e vetrate per aziende a Trento | MediS",
+        "desc": "Pulizia vetri, vetrate e vetrine per negozi, showroom, hotel e aziende a Trento. Metodo classico, lavori in quota, anche fuori orario.",
         "lead": "Vetrine di negozi, vetrate di showroom, ingressi di hotel e facciate di sedi aziendali: a Trento pulisco le grandi superfici vetrate delle attività, con il metodo classico e un risultato senza aloni.",
         "sections": [
             ("Vetrate pulite per le attività di Trento",
@@ -146,7 +146,7 @@ PAGES = [
                 "Infissi e binari, su richiesta",
                 "Rimozione di adesivi e calcare dal vetro, dove possibile",
             ])),
-            ("Il metodo", METODO + "\n" + p("<a href=\"pulizia-vetrate-trentino.html\">Scopri come lavoro sulle vetrate</a>.")),
+            ("Il metodo", METODO + "\n" + p("<a href=\"pulizia-vetri-trentino.html\">Scopri come lavoro nella pulizia dei vetri</a>.")),
             ("Anche prima dell’apertura", p(
                 "Per non disturbare i tuoi clienti posso lavorare prima dell’apertura, la sera o nel giorno di chiusura: "
                 "basta programmare insieme l’intervento. Puoi scegliere un passaggio singolo oppure una frequenza fissa, "
@@ -163,11 +163,11 @@ PAGES = [
     {
         "slug": "lavavetri-rovereto",
         "place": "Rovereto",
-        "h1": "Pulizia vetrate per aziende a Rovereto",
+        "h1": "Pulizia vetri e vetrate per aziende a Rovereto",
         "badge": "Rovereto e Vallagarina",
-        "title": "Pulizia vetrate per aziende a Rovereto | MediS",
-        "desc": "Pulizia di vetrate e vetrine per negozi, showroom, hotel e aziende a Rovereto e in Vallagarina. Metodo classico, anche fuori orario.",
-        "lead": "A Rovereto e in Vallagarina curo le superfici vetrate di negozi, showroom, attività ricettive e aziende: vetrine trasparenti e ingressi in ordine, con interventi singoli o programmati.",
+        "title": "Pulizia vetri e vetrate per aziende a Rovereto | MediS",
+        "desc": "Pulizia vetri, vetrate e vetrine per negozi, showroom, hotel e aziende a Rovereto e in Vallagarina. Metodo classico, anche fuori orario.",
+        "lead": "A Rovereto e in Vallagarina mi occupo della pulizia dei vetri e delle superfici vetrate di negozi, showroom, attività ricettive e aziende: vetrine trasparenti e ingressi in ordine, con interventi singoli o programmati.",
         "sections": [
             ("Per le attività di Rovereto e della Vallagarina",
              p("Dalle vetrine del centro alle grandi vetrate delle zone commerciali, ogni attività ha esigenze diverse: "
@@ -183,7 +183,7 @@ PAGES = [
                 "Infissi e binari, su richiesta",
                 "Vecchi adesivi e calcare sul vetro, dove si possono togliere",
             ])),
-            ("Metodo classico e lavori in quota", METODO + "\n" + p("<a href=\"pulizia-vetrate-trentino.html\">Scopri come lavoro sulle vetrate</a>.")),
+            ("Metodo classico e lavori in quota", METODO + "\n" + p("<a href=\"pulizia-vetri-trentino.html\">Scopri come lavoro nella pulizia dei vetri</a>.")),
             ("Orari che non disturbano", p(
                 "Posso intervenire prima dell’apertura, la sera o nel giorno di chiusura: il lavoro si fa quando il "
                 "negozio è vuoto e i tuoi clienti trovano le vetrate già pulite.")),
@@ -196,13 +196,13 @@ PAGES = [
         "other": "Oltre a Rovereto e alla Vallagarina lavoro con le attività di tutta la provincia di Trento.",
     },
     {
-        "slug": "pulizia-vetrate-trentino",
+        "slug": "pulizia-vetri-trentino",
         "place": "Trentino",
-        "h1": "Pulizia vetrate e vetrine per aziende in Trentino",
+        "h1": "Pulizia vetri e vetrate per aziende in Trentino",
         "badge": "Metodo classico e lavori in quota",
-        "title": "Pulizia vetrate e vetrine per aziende: il metodo | MediS",
-        "desc": "Come pulisco le vetrate di negozi, showroom, hotel e aziende in Trentino: vello e tergivetro, lavori in quota fino al 2° piano, adesivi e calcare.",
-        "service_type": "Pulizia vetrate per aziende",
+        "title": "Pulizia vetri per aziende in Trentino: il metodo | MediS",
+        "desc": "Pulizia vetri e vetrate per negozi, showroom, hotel e aziende in Trentino: vello e tergivetro, lavori in quota fino al 2° piano, adesivi e calcare.",
+        "service_type": "Pulizia vetri per aziende",
         "offers": ["Pulizia vetrine e porte a vetro", "Pulizia vetrate di showroom e concessionarie", "Pulizia facciate vetrate e ingressi",
                    "Pulizia infissi e binari", "Rimozione adesivi e decori dal vetro", "Decalcificazione del vetro", "Passaggi di pulizia programmati"],
         "lead": "Vetrine, vetrate di showroom, ingressi di hotel e facciate di sedi aziendali: le grandi superfici vetrate sono il mio lavoro principale. Le pulisco con il metodo classico, vello e tergivetro, che garantisce il risultato migliore; dove la scala non basta uso aste ad acqua demineralizzata.",
@@ -215,7 +215,7 @@ PAGES = [
                 "Facciate vetrate e ingressi di rappresentanza di sedi aziendali",
                 "Infissi e binari, su richiesta",
             ])),
-            ("Il metodo classico: vello e tergivetro", p(
+            ("Pulizia del vetro con il metodo classico", p(
                 "Da terra e dove arrivo con la scala lavoro con vello e tergivetro: il vello scioglie lo sporco, il "
                 "tergivetro lo porta via. È il metodo classico, quello che garantisce il risultato migliore su vetrine e "
                 "vetrate.") + "\n" +
