@@ -114,13 +114,13 @@ METODO = (
       "senza cestello e senza scale davanti all’ingresso.") + "\n" +
     p("Le aste non sono la soluzione per tutto: servono spazio a terra e un accesso libero. Con tettoie, "
       "tende, balconi, vetrate più alte o sporco ostinato come silicone e residui di cantiere servono "
-      "altri strumenti e il lavoro a mano. Dalle foto ti dico subito come procedere.")
+      "altri strumenti e il lavoro a mano. Quando ci incontriamo valutiamo insieme come procedere.")
 )
 
 PREVENTIVO = p(
-    'Mandami indirizzo e qualche foto delle vetrate <a href="' + WA + '" target="_blank" rel="noopener">su WhatsApp</a> '
-    'oppure chiamami al <a href="tel:+393519878991">351 987 8991</a>: ti rispondo con un prezzo chiaro, '
-    'concordato prima di iniziare e senza impegno.'
+    'Chiamami al <a href="tel:+393519878991">351 987 8991</a> oppure scrivimi '
+    '<a href="' + WA + '" target="_blank" rel="noopener">su WhatsApp</a>: organizziamo un incontro per conoscerci '
+    'e valutare insieme l’intervento, poi ti preparo un preventivo chiaro e senza impegno.'
 )
 
 PAGES = [
@@ -155,7 +155,7 @@ PAGES = [
                 "Per migliorare l’immagine del tuo negozio mi occupo anche di riqualificazione interni, con pellicole "
                 "decorative che rinnovano banconi, porte, pareti e reception senza smontare nulla, e di pellicole per vetri "
                 "a controllo solare. <a href=\"/#cosa-faccio\">Scopri tutti i servizi</a>.")),
-            ("Richiedi un preventivo", PREVENTIVO),
+            ("Conosciamoci", PREVENTIVO),
         ],
         "other": "Oltre a Trento lavoro con le attività di tutta la provincia, dalla Vallagarina alla Valsugana.",
     },
@@ -189,7 +189,7 @@ PAGES = [
                 "Oltre alla pulizia propongo la riqualificazione interni con pellicole decorative effetto legno, pietra, "
                 "metallo o colore, e pellicole per vetri a controllo solare per gli spazi esposti al sole. "
                 "<a href=\"/#cosa-faccio\">Vedi tutti i servizi</a>.")),
-            ("Richiedi un preventivo", PREVENTIVO),
+            ("Conosciamoci", PREVENTIVO),
         ],
         "other": "Oltre a Rovereto e alla Vallagarina lavoro con le attività di tutta la provincia di Trento.",
     },
