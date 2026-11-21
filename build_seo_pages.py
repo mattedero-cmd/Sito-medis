@@ -249,10 +249,10 @@ PAGES = [
         "h1": "Riqualificazione interni per negozi a Trento e in Trentino",
         "badge": "Pellicole decorative per arredi e superfici",
         "title": "Riqualificazione interni per negozi a Trento | MediS",
-        "desc": "Rinnova banconi, porte, pareti e arredi del tuo negozio con pellicole decorative effetto legno, pietra, metallo, pelle e tessuto. Trento e Trentino.",
+        "desc": "Rinnova banconi, porte, pareti e arredi di negozi e hotel con pellicole decorative Cover Styl’ effetto legno, pietra, metallo e tessuto. Trentino.",
         "service_type": "Riqualificazione interni con pellicole decorative",
         "offers": ["Rivestimento di banconi e reception", "Rivestimento di porte e pareti", "Rivestimento di arredi ed espositori", "Rivestimento di cucine e banconi bar", "Rivestimento di ascensori, colonne e soffitti"],
-        "lead": "Il tuo negozio ha un bancone segnato, porte superate o arredi che non rispecchiano più la tua immagine? Con le pellicole decorative li rinnovo senza smontarli e senza cantiere: cambiano aspetto in poco tempo, restano al loro posto.",
+        "lead": "Il tuo negozio ha un bancone segnato, porte superate o arredi che non rispecchiano più la tua immagine? Con le pellicole decorative Cover Styl’ li rinnovo senza smontarli e senza cantiere: cambiano aspetto in poco tempo, restano al loro posto. Dal singolo negozio fino ai grandi cantieri come gli alberghi.",
         "sections": [
             ("Perché riqualificare con le pellicole", p(
                 "Sostituire un bancone, rifare una parete o cambiare le porte significa demolire, smaltire, aspettare e "
@@ -274,10 +274,17 @@ PAGES = [
                 "<strong>Metallo</strong>: acciaio, ottone, finiture spazzolate",
                 "<strong>Tinta unita</strong>, opaca o lucida",
                 "<strong>Pelle e tessuto</strong>, per superfici calde al tatto e alla vista",
-            ]) + "\n" + p("Al primo incontro ti mostro il catalogo delle finiture, così scegli quella giusta per il tuo locale.")),
+            ]) + "\n" + p("Lavoro con le pellicole architettoniche Cover Styl’, con centinaia di finiture realistiche. "
+                "<a href=\"https://coverstyl.com/it/collection/\" target=\"_blank\" rel=\"noopener\">Sfoglia tutte le finiture Cover Styl’</a> "
+                "per farti un’idea; al primo incontro le guardiamo insieme sul catalogo e scegli quella giusta per il tuo locale.")),
+            ("Anche grandi cantieri", p(
+                "Grazie alla collaborazione diretta con Blu Sign, distributore Cover Styl’ nel Nord Italia, posso gestire "
+                "anche cantieri di grandi dimensioni, come la riqualificazione di un albergo: camere, corridoi, porte, "
+                "reception e aree comuni, con materiali disponibili nelle quantità che servono.")),
             ("Per chi lavoro", ul([
                 "Negozi e boutique che vogliono rinnovare l’immagine",
-                "Bar, ristoranti e hotel: banconi, reception, sale",
+                "Hotel e alberghi, anche per cantieri di grandi dimensioni",
+                "Bar e ristoranti: banconi, sale, cucine",
                 "Showroom e spazi espositivi",
                 "Palestre, studi e spazi aperti al pubblico",
             ])),
