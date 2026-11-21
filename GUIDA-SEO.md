@@ -1,4 +1,4 @@
-# Guida SEO MediS — comparire forte come "lavavetri" in Trentino
+# Guida SEO MediS: comparire come specialista delle vetrate per aziende in Trentino
 
 Il sito è già ottimizzato lato tecnico. Per **comparire su Google e Maps** servono
 3 azioni gratuite. Falle nell'ordine: la #1 è la più importante.
@@ -20,9 +20,9 @@ cerca "lavavetri Trento". Senza, è quasi impossibile comparire in locale.
 5. **Telefono:** 351 987 8991 · **Sito:** https://medistn.it
 6. **Verifica:** Google ti chiede di confermare (per telefono/video/cartolina).
    Completa la verifica, altrimenti il profilo non si attiva.
-7. Dopo l'attivazione: carica **foto dei lavori** (prima/dopo vetri e fotovoltaico),
-   il **logo**, e scrivi una descrizione con le parole *lavavetri, vetri, vetrine,
-   pannelli fotovoltaici, Trentino*.
+7. Dopo l'attivazione: carica **foto dei lavori** (prima/dopo di vetrine e vetrate, riqualificazioni),
+   il **logo**, e scrivi una descrizione con le parole *pulizia vetrate, vetrine,
+   aziende, negozi, riqualificazione interni, Trentino*.
 
 ---
 
@@ -52,15 +52,14 @@ Le recensioni (con parole come "lavavetri" e la città) fanno salire in classifi
 
 ---
 
-## Pagine già pronte sul sito (coprono il territorio)
+## Pagine del sito
 
-- `/lavavetri-trento.html`
-- `/lavavetri-rovereto.html`
-- `/lavavetri-pergine-valsugana.html`
-- `/lavavetri-altopiano-della-vigolana.html`
-- `/pulizia-pannelli-fotovoltaici-trentino.html`
+- `/` homepage: pulizia vetrate per aziende in Trentino, riqualificazione interni, pellicole per vetri
+- `/lavavetri-trento.html`: pulizia vetrate per aziende a Trento
+- `/lavavetri-rovereto.html`: pulizia vetrate per aziende a Rovereto
 
-Posso aggiungere altre città quando vuoi (es. Lavis, Mezzolombardo, Riva del Garda…).
+Le vecchie pagine (Pergine, Vigolana, fotovoltaico) rimandano alla homepage.
+Per modificare le pagine città: `python3 build_seo_pages.py` (rigenera anche la sitemap).
 
 ---
 

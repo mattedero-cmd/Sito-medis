@@ -30,16 +30,20 @@ Una volta online, l'indirizzo da impostare sul tag NFC sarà:
 
 ## Contenuti del sito (index.html)
 
-- **Hero** — "Lavavetri in Trentino", pulsanti Chiama/WhatsApp e finestra
-  interattiva prima/dopo (si trascina per "pulire" il vetro)
-- **Servizi** — Lavavetri in evidenza + Pellicole e grafiche (interni,
-  controllo solare, auto aziendali, wrapping)
-- **Come lavoro** — 3 passi e punti di forza
-- **Zone** — link alle pagine per città
-- **Instagram** e **Contatti** (Chiama, WhatsApp, Email, Salva contatto, Recensione)
-- Su telefono, scorrendo compare una barra fissa con Chiama/WhatsApp
+Posizionamento: **pulizia di grandi vetrate per aziende** (negozi, showroom, hotel,
+ristoranti, palestre, sedi aziendali) in tutto il Trentino, più **riqualificazione
+interni** e **pellicole per vetri**.
 
-Il pulsante recensioni si attiva inserendo il link in `REVIEW_URL` (in fondo a `index.html`).
+- Schermata iniziale: logo, nome, pulsanti Chiama, WhatsApp, Email, Salva contatto
+- Prova tu: vetro sporco da pulire col dito, con pulsante preventivo
+- Cosa faccio: Pulizia vetrate, Riqualificazione interni, Controllo solare (testi nell'HTML, dettagli in finestra)
+- Per chi lavoro, Il mio metodo (aste ad acqua demineralizzata fino al 2° piano), Come lavoro
+- Chi sono, Domande frequenti, zone (Trento, Rovereto, Trentino)
+- Pagine città: `lavavetri-trento.html`, `lavavetri-rovereto.html` (generate da `build_seo_pages.py`)
+- `og-image.png`: immagine per le anteprime dei link (1200x630)
+
+Il pulsante recensioni si attiva inserendo il link in `REVIEW_URL` (nello script in fondo a `index.html`).
+La cartella `prove/` contiene le proposte alternative e non viene pubblicata.
 
 ## Dati attività
 
