@@ -108,13 +108,12 @@ def ul(items):
 
 
 METODO = (
-    p("Per le vetrate esterne uso aste telescopiche in carbonio con acqua demineralizzata: "
-      "l’acqua passa attraverso resine a scambio ionico che tolgono calcare e minerali, così il vetro "
-      "asciuga da solo, senza aloni e senza residui di detergente. Fino al secondo piano lavoro da terra, "
-      "senza cestello e senza scale davanti all’ingresso.") + "\n" +
-    p("Le aste non sono la soluzione per tutto: servono spazio a terra e un accesso libero. Con tettoie, "
-      "tende, balconi, vetrate più alte o sporco ostinato come silicone e residui di cantiere servono "
-      "altri strumenti e il lavoro a mano. Quando ci incontriamo valutiamo insieme come procedere.")
+    p("Lavoro con il metodo classico, vello e tergivetro, che garantisce il risultato migliore, e mi premuro di "
+      "sistemare i dettagli lungo i bordi del vetro. Su richiesta pulisco anche infissi e binari.") + "\n" +
+    p("Dove la scala non basta uso aste telescopiche con acqua demineralizzata: l’acqua passa attraverso resine a "
+      "scambio ionico che tolgono calcare e minerali, così il vetro asciuga senza aloni. Arrivo fino al secondo piano "
+      "senza cestello; con tettoie, balconi o vetrate più alte serve un altro tipo di intervento, e quando ci "
+      "incontriamo valutiamo insieme come procedere.")
 )
 
 PREVENTIVO = p(
@@ -130,8 +129,8 @@ PAGES = [
         "h1": "Pulizia vetrate per aziende a Trento",
         "badge": "Trento e dintorni",
         "title": "Pulizia vetrate per aziende a Trento | MediS",
-        "desc": "Pulizia di vetrate, vetrine e facciate in vetro per negozi, showroom, hotel e aziende a Trento. Fino al 2° piano da terra, anche fuori orario.",
-        "lead": "Vetrine di negozi, vetrate di showroom, ingressi di hotel e facciate di sedi aziendali: a Trento pulisco le grandi superfici vetrate delle attività, con acqua demineralizzata e un risultato senza aloni.",
+        "desc": "Pulizia di vetrate, vetrine e facciate in vetro per negozi, showroom, hotel e aziende a Trento. Metodo classico, lavori in quota, anche fuori orario.",
+        "lead": "Vetrine di negozi, vetrate di showroom, ingressi di hotel e facciate di sedi aziendali: a Trento pulisco le grandi superfici vetrate delle attività, con il metodo classico e un risultato senza aloni.",
         "sections": [
             ("Vetrate pulite per le attività di Trento",
              p("In una città dove tanti negozi si affacciano sulla strada, la vetrina è la prima cosa che un cliente vede. "
@@ -144,7 +143,8 @@ PAGES = [
                 "Grandi vetrate di showroom e concessionarie",
                 "Ingressi, sale e dehors in vetro di hotel, bar e ristoranti",
                 "Facciate vetrate e ingressi di rappresentanza di sedi aziendali",
-                "Telai e profili, lavati insieme al vetro",
+                "Infissi e binari, su richiesta",
+                "Rimozione di adesivi e calcare dal vetro, dove possibile",
             ])),
             ("Il metodo", METODO + "\n" + p("<a href=\"pulizia-vetrate-trentino.html\">Scopri come lavoro sulle vetrate</a>.")),
             ("Anche prima dell’apertura", p(
@@ -166,7 +166,7 @@ PAGES = [
         "h1": "Pulizia vetrate per aziende a Rovereto",
         "badge": "Rovereto e Vallagarina",
         "title": "Pulizia vetrate per aziende a Rovereto | MediS",
-        "desc": "Pulizia di vetrate e vetrine per negozi, showroom, hotel e aziende a Rovereto e in Vallagarina. Acqua demineralizzata, anche fuori orario.",
+        "desc": "Pulizia di vetrate e vetrine per negozi, showroom, hotel e aziende a Rovereto e in Vallagarina. Metodo classico, anche fuori orario.",
         "lead": "A Rovereto e in Vallagarina curo le superfici vetrate di negozi, showroom, attività ricettive e aziende: vetrine trasparenti e ingressi in ordine, con interventi singoli o programmati.",
         "sections": [
             ("Per le attività di Rovereto e della Vallagarina",
@@ -179,10 +179,11 @@ PAGES = [
                 "Vetrine su strada e ingressi di negozi",
                 "Vetrate di showroom, concessionarie e spazi espositivi",
                 "Vetrate di hotel, ristoranti e palestre",
-                "Facciate e ingressi di sedi aziendali, fino al secondo piano da terra",
-                "Telai e profili, insieme al vetro",
+                "Facciate e ingressi di sedi aziendali, fino al secondo piano senza cestello",
+                "Infissi e binari, su richiesta",
+                "Vecchi adesivi e calcare sul vetro, dove si possono togliere",
             ])),
-            ("Acqua pura, senza detergenti", METODO + "\n" + p("<a href=\"pulizia-vetrate-trentino.html\">Scopri come lavoro sulle vetrate</a>.")),
+            ("Metodo classico e lavori in quota", METODO + "\n" + p("<a href=\"pulizia-vetrate-trentino.html\">Scopri come lavoro sulle vetrate</a>.")),
             ("Orari che non disturbano", p(
                 "Posso intervenire prima dell’apertura, la sera o nel giorno di chiusura: il lavoro si fa quando il "
                 "negozio è vuoto e i tuoi clienti trovano le vetrate già pulite.")),
@@ -198,12 +199,13 @@ PAGES = [
         "slug": "pulizia-vetrate-trentino",
         "place": "Trentino",
         "h1": "Pulizia vetrate e vetrine per aziende in Trentino",
-        "badge": "Acqua demineralizzata, fino al 2° piano da terra",
-        "title": "Pulizia vetrate e vetrine con acqua demineralizzata | MediS",
-        "desc": "Come pulisco le vetrate di negozi, showroom, hotel e aziende in Trentino: acqua demineralizzata, aste fino al 2° piano, passaggi programmati.",
+        "badge": "Metodo classico e lavori in quota",
+        "title": "Pulizia vetrate e vetrine per aziende: il metodo | MediS",
+        "desc": "Come pulisco le vetrate di negozi, showroom, hotel e aziende in Trentino: vello e tergivetro, lavori in quota fino al 2° piano, adesivi e calcare.",
         "service_type": "Pulizia vetrate per aziende",
-        "offers": ["Pulizia vetrine e porte a vetro", "Pulizia vetrate di showroom e concessionarie", "Pulizia facciate vetrate e ingressi", "Passaggi di pulizia programmati"],
-        "lead": "Vetrine, vetrate di showroom, ingressi di hotel e facciate di sedi aziendali: le grandi superfici vetrate sono il mio lavoro principale. Le pulisco con acqua demineralizzata e attrezzatura professionale, per un vetro davvero trasparente, senza aloni e senza detergenti.",
+        "offers": ["Pulizia vetrine e porte a vetro", "Pulizia vetrate di showroom e concessionarie", "Pulizia facciate vetrate e ingressi",
+                   "Pulizia infissi e binari", "Rimozione adesivi e decori dal vetro", "Decalcificazione del vetro", "Passaggi di pulizia programmati"],
+        "lead": "Vetrine, vetrate di showroom, ingressi di hotel e facciate di sedi aziendali: le grandi superfici vetrate sono il mio lavoro principale. Le pulisco con il metodo classico, vello e tergivetro, che garantisce il risultato migliore; dove la scala non basta uso aste ad acqua demineralizzata.",
         "sections": [
             ("Cosa pulisco", ul([
                 "Vetrine e porte a vetro di negozi",
@@ -211,25 +213,32 @@ PAGES = [
                 "Ingressi, sale e dehors in vetro di hotel, bar e ristoranti",
                 "Pareti vetrate di palestre e centri sportivi",
                 "Facciate vetrate e ingressi di rappresentanza di sedi aziendali",
-                "Telai e profili, lavati insieme al vetro",
+                "Infissi e binari, su richiesta",
             ])),
-            ("Acqua demineralizzata: perché non lascia aloni", p(
-                "L’acqua del rubinetto contiene calcare e minerali: quando asciuga sul vetro li lascia lì, sotto forma di "
-                "aloni e goccioline. Per questo uso acqua demineralizzata: la faccio passare attraverso resine a scambio "
-                "ionico che trattengono calcare e minerali, così sul vetro arriva acqua pura.") + "\n" +
-             p("L’acqua pura scioglie lo sporco e asciuga da sola senza lasciare segni. Non servono detergenti: niente "
-               "residui sul vetro, niente prodotti chimici che colano su telai, marciapiede o piante.")),
-            ("Fino al secondo piano, restando a terra", p(
-                "Per le vetrate esterne uso aste telescopiche in carbonio, leggere e rigide, con una spazzola in cima da "
-                "cui esce l’acqua pura. Fino al secondo piano lavoro da terra, senza cestello e senza scale davanti "
-                "all’ingresso: più sicurezza per te, per i tuoi clienti e per chi passa.") + "\n" +
-             p("La spazzola lava insieme vetro, telai e profili: anche le parti che di solito si dimenticano restano pulite.")),
+            ("Il metodo classico: vello e tergivetro", p(
+                "Da terra e dove arrivo con la scala lavoro con vello e tergivetro: il vello scioglie lo sporco, il "
+                "tergivetro lo porta via. È il metodo classico, quello che garantisce il risultato migliore su vetrine e "
+                "vetrate.") + "\n" +
+             p("Mi premuro di sistemare i dettagli lungo i bordi del vetro, dove lo sporco e le gocce restano più spesso: "
+               "è lì che si vede la differenza tra un vetro lavato e un vetro pulito davvero. Su richiesta pulisco anche "
+               "infissi e binari.")),
+            ("In quota: aste ad acqua demineralizzata", p(
+                "Dove la scala non basta uso aste telescopiche con una spazzola in cima, da cui esce acqua demineralizzata. "
+                "L’acqua del rubinetto contiene calcare e minerali che, asciugando, lasciano aloni; io la faccio passare "
+                "attraverso resine a scambio ionico che li trattengono, così sul vetro arriva acqua pura che asciuga senza "
+                "segni e senza detergenti.") + "\n" +
+             p("Con le aste arrivo fino al secondo piano senza bisogno del cestello.")),
             ("Quando le aste non bastano", p(
-                "Le aste sono uno strumento ottimo, ma non sostituiscono sempre il lavoro con il cestello. Servono spazio a "
-                "terra sotto la vetrata e un accesso libero. Tettoie, tende e balconi, vetrate oltre il secondo piano o sporco "
-                "ostinato come silicone, vernice e residui di cantiere richiedono altri strumenti e il lavoro a mano.") + "\n" +
+                "Le aste sono pensate per i lavori in quota, ma non sostituiscono sempre il lavoro con il cestello: servono "
+                "spazio a terra sotto la vetrata e un accesso libero. Con tettoie, tende e balconi o vetrate oltre il secondo "
+                "piano serve un altro tipo di intervento.") + "\n" +
              p("Quando ci incontriamo guardiamo insieme le tue vetrate e scegliamo la soluzione giusta, senza promesse "
                "che non si possono mantenere.")),
+            ("Adesivi, decori e calcare", p(
+                "Mi occupo anche di rimuovere vecchi adesivi e decori dal vetro e di decalcificarlo dove possibile. "
+                "Non è sempre una passata in più: l’acido non si può usare su ogni vetro e anche l’asportazione per "
+                "abrasione ha dei limiti. Per questo valuto ogni caso di persona e ti dico con onestà che risultato "
+                "aspettarti.")),
             ("Una volta o con passaggi programmati", p(
                 "Una vetrina su una strada trafficata si sporca molto prima di una vetrata interna. Puoi chiamarmi per un "
                 "intervento singolo oppure scegliere passaggi programmati, per esempio ogni mese o a ogni cambio di stagione: "
