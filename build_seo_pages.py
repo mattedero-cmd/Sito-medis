@@ -152,7 +152,7 @@ PAGES = [
                 "basta programmare insieme l’intervento. Puoi scegliere un passaggio singolo oppure una frequenza fissa, "
                 "per esempio ogni mese o a ogni cambio di stagione.")),
             ("Non solo vetri", p(
-                "Per migliorare l’immagine del tuo negozio mi occupo anche di riqualificazione interni, con pellicole "
+                "Per migliorare l’immagine del tuo negozio mi occupo anche di <a href=\"riqualificazione-interni-trento.html\">riqualificazione interni</a>, con pellicole "
                 "decorative che rinnovano banconi, porte, pareti e reception senza smontare nulla, e di "
                 "<a href=\"pellicole-per-vetri-trento.html\">pellicole per vetri</a> solari, privacy e di sicurezza. "
                 "<a href=\"/#cosa-faccio\">Scopri tutti i servizi</a>.")),
@@ -187,7 +187,7 @@ PAGES = [
                 "Posso intervenire prima dell’apertura, la sera o nel giorno di chiusura: il lavoro si fa quando il "
                 "negozio è vuoto e i tuoi clienti trovano le vetrate già pulite.")),
             ("Rinnovare l’immagine del negozio", p(
-                "Oltre alla pulizia propongo la riqualificazione interni con pellicole decorative effetto legno, pietra, "
+                "Oltre alla pulizia propongo la <a href=\"riqualificazione-interni-trento.html\">riqualificazione interni</a> con pellicole decorative effetto legno, pietra, "
                 "metallo o colore, e <a href=\"pellicole-per-vetri-trento.html\">pellicole per vetri</a>: a controllo solare "
                 "per gli spazi esposti al sole, privacy e di sicurezza. <a href=\"/#cosa-faccio\">Vedi tutti i servizi</a>.")),
             ("Conosciamoci", PREVENTIVO),
@@ -241,7 +241,59 @@ PAGES = [
              p("Posso lavorare anche prima dell’apertura, la sera o nel giorno di chiusura, per non fermare la tua attività.")),
             ("Conosciamoci", PREVENTIVO),
         ],
-        "other": "Applico pellicole per vetri a Trento, Rovereto e in tutta la provincia. Mi occupo anche di pulizia vetrate e riqualificazione interni.",
+        "other": "Applico pellicole per vetri a Trento, Rovereto e in tutta la provincia. Mi occupo anche di pulizia vetrate e di <a href=\"riqualificazione-interni-trento.html\">riqualificazione interni</a>.",
+    },
+    {
+        "slug": "riqualificazione-interni-trento",
+        "place": "Trento",
+        "h1": "Riqualificazione interni per negozi a Trento e in Trentino",
+        "badge": "Pellicole decorative per arredi e superfici",
+        "title": "Riqualificazione interni per negozi a Trento | MediS",
+        "desc": "Rinnova banconi, porte, pareti e arredi del tuo negozio con pellicole decorative effetto legno, pietra, metallo, pelle e tessuto. Trento e Trentino.",
+        "service_type": "Riqualificazione interni con pellicole decorative",
+        "offers": ["Rivestimento di banconi e reception", "Rivestimento di porte e pareti", "Rivestimento di arredi ed espositori", "Rivestimento di cucine e banconi bar", "Rivestimento di ascensori, colonne e soffitti"],
+        "lead": "Il tuo negozio ha un bancone segnato, porte superate o arredi che non rispecchiano più la tua immagine? Con le pellicole decorative li rinnovo senza smontarli e senza cantiere: cambiano aspetto in poco tempo, restano al loro posto.",
+        "sections": [
+            ("Perché riqualificare con le pellicole", p(
+                "Sostituire un bancone, rifare una parete o cambiare le porte significa demolire, smaltire, aspettare e "
+                "spesso chiudere. Le pellicole decorative si applicano direttamente sulle superfici esistenti: "
+                "un’alternativa pulita e veloce alla sostituzione, con pochi disagi per la tua attività.") + "\n" +
+             p("È il modo più semplice per dare un volto nuovo al negozio, adeguarlo a un nuovo marchio o semplicemente "
+               "farlo sembrare curato come merita.")),
+            ("Cosa posso rinnovare", ul([
+                "Banconi, casse e reception",
+                "Porte, infissi e pareti, anche in cartongesso",
+                "Mobili, espositori, scaffali e tavoli",
+                "Cucine, banconi bar, frigoriferi e vetrine refrigerate",
+                "Interni e porte di ascensori",
+                "Colonne, pilastri e soffitti",
+            ])),
+            ("Le finiture", ul([
+                "<strong>Legno</strong>, nelle diverse essenze e tonalità",
+                "<strong>Pietra e marmo</strong>, compreso l’effetto cemento",
+                "<strong>Metallo</strong>: acciaio, ottone, finiture spazzolate",
+                "<strong>Tinta unita</strong>, opaca o lucida",
+                "<strong>Pelle e tessuto</strong>, per superfici calde al tatto e alla vista",
+            ]) + "\n" + p("Al primo incontro ti mostro il catalogo delle finiture, così scegli quella giusta per il tuo locale.")),
+            ("Per chi lavoro", ul([
+                "Negozi e boutique che vogliono rinnovare l’immagine",
+                "Bar, ristoranti e hotel: banconi, reception, sale",
+                "Showroom e spazi espositivi",
+                "Palestre, studi e spazi aperti al pubblico",
+            ])),
+            ("Come lavoro", ul([
+                "<strong>Ci incontriamo</strong>: vedo il locale, capisco cosa vuoi ottenere e ti mostro il catalogo",
+                "<strong>Scegliamo insieme</strong> superfici e finiture",
+                "<strong>Preventivo chiaro</strong>, senza impegno",
+                "<strong>Applicazione</strong>: preparo le superfici e applico le pellicole con cura e senza difetti",
+            ])),
+            ("Vetrine e interni, un solo referente", p(
+                "Oltre alla riqualificazione mi occupo di <a href=\"/#cosa-faccio\">pulizia vetrate</a> e di "
+                "<a href=\"pellicole-per-vetri-trento.html\">pellicole per vetri</a>: puoi affidare a una sola persona "
+                "tutto quello che i clienti vedono del tuo negozio, dalla vetrina al bancone.")),
+            ("Conosciamoci", PREVENTIVO),
+        ],
+        "other": "Rinnovo negozi e locali a Trento, Rovereto e in tutta la provincia.",
     },
 ]
 
