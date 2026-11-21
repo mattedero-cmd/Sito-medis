@@ -215,7 +215,7 @@ PAGES = [
                 "Spazi dove il sole sugli schermi o sui banconi dà fastidio",
              ])),
             ("Pellicole privacy", p(
-                "Satinate, con l’effetto di un vetro smerigliato, oppure oscuranti: tengono riservati gli spazi senza "
+                "Satinate, con l’effetto di un vetro smerigliato: tengono riservati gli spazi senza "
                 "togliere luce. Si possono applicare su tutta la superficie o solo in una fascia, così chi passa non vede "
                 "dentro ma la vetrata resta luminosa.") + "\n" +
              ul([
@@ -229,7 +229,7 @@ PAGES = [
                 "d’uomo.")),
             ("Grafiche per vetrine", p(
                 "Applico vetrofanie e grafiche adesive con logo, orari, scritte e promozioni. Tu, la tua agenzia o la tua "
-                "tipografia mi fornite la grafica pronta; io la applico con cura, ben allineata e senza bolle, così la "
+                "tipografia mi fornite la grafica pronta; io la applico con cura e senza difetti, così la "
                 "vetrina comunica in modo pulito e professionale.")),
             ("Interno o esterno?", p(
                 "Dipende dal tipo di vetro, da come è esposto e dalla pellicola scelta: alcune vanno applicate sul lato "
