@@ -153,8 +153,9 @@ PAGES = [
                 "per esempio ogni mese o a ogni cambio di stagione.")),
             ("Non solo vetri", p(
                 "Per migliorare l’immagine del tuo negozio mi occupo anche di riqualificazione interni, con pellicole "
-                "decorative che rinnovano banconi, porte, pareti e reception senza smontare nulla, e di pellicole per vetri "
-                "a controllo solare. <a href=\"/#cosa-faccio\">Scopri tutti i servizi</a>.")),
+                "decorative che rinnovano banconi, porte, pareti e reception senza smontare nulla, e di "
+                "<a href=\"pellicole-per-vetri-trento.html\">pellicole per vetri</a> solari, privacy e di sicurezza. "
+                "<a href=\"/#cosa-faccio\">Scopri tutti i servizi</a>.")),
             ("Conosciamoci", PREVENTIVO),
         ],
         "other": "Oltre a Trento lavoro con le attività di tutta la provincia, dalla Vallagarina alla Valsugana.",
@@ -187,11 +188,60 @@ PAGES = [
                 "negozio è vuoto e i tuoi clienti trovano le vetrate già pulite.")),
             ("Rinnovare l’immagine del negozio", p(
                 "Oltre alla pulizia propongo la riqualificazione interni con pellicole decorative effetto legno, pietra, "
-                "metallo o colore, e pellicole per vetri a controllo solare per gli spazi esposti al sole. "
-                "<a href=\"/#cosa-faccio\">Vedi tutti i servizi</a>.")),
+                "metallo o colore, e <a href=\"pellicole-per-vetri-trento.html\">pellicole per vetri</a>: a controllo solare "
+                "per gli spazi esposti al sole, privacy e di sicurezza. <a href=\"/#cosa-faccio\">Vedi tutti i servizi</a>.")),
             ("Conosciamoci", PREVENTIVO),
         ],
         "other": "Oltre a Rovereto e alla Vallagarina lavoro con le attività di tutta la provincia di Trento.",
+    },
+    {
+        "slug": "pellicole-per-vetri-trento",
+        "place": "Trento",
+        "h1": "Pellicole per vetri a Trento e in Trentino",
+        "badge": "Solari, privacy, sicurezza e grafiche",
+        "title": "Pellicole per vetri a Trento: solari, privacy e sicurezza | MediS",
+        "desc": "Pellicole per vetrate di negozi, showroom e aziende in Trentino: controllo solare, privacy, sicurezza e applicazione di grafiche per vetrine.",
+        "service_type": "Applicazione pellicole per vetri",
+        "offers": ["Pellicole a controllo solare", "Pellicole privacy", "Pellicole di sicurezza", "Applicazione grafiche per vetrine"],
+        "lead": "Una pellicola applicata sul vetro esistente cambia il modo in cui una vetrata lavora per la tua attività: meno calore, più riservatezza, più sicurezza o una vetrina che comunica. Senza sostituire il vetro e senza lavori di muratura.",
+        "sections": [
+            ("Pellicole a controllo solare", p(
+                "Sulle vetrate esposte al sole riducono il calore che entra e l’abbagliamento, e filtrano i raggi solari "
+                "che con il tempo fanno scolorire prodotti in vetrina, arredi e pavimenti. Gli ambienti restano più "
+                "luminosi e piacevoli anche d’estate, per chi ci lavora e per i clienti.") + "\n" +
+             ul([
+                "Vetrine e showroom esposti a sud o a ovest",
+                "Sale, ingressi e reception con grandi vetrate",
+                "Spazi dove il sole sugli schermi o sui banconi dà fastidio",
+             ])),
+            ("Pellicole privacy", p(
+                "Satinate, con l’effetto di un vetro smerigliato, oppure oscuranti: tengono riservati gli spazi senza "
+                "togliere luce. Si possono applicare su tutta la superficie o solo in una fascia, così chi passa non vede "
+                "dentro ma la vetrata resta luminosa.") + "\n" +
+             ul([
+                "Vetrate su strada di studi, ambulatori e spazi di consulenza",
+                "Zone riservate, retro del negozio, spogliatoi e servizi",
+                "Pareti vetrate interne che dividono gli ambienti",
+             ])),
+            ("Pellicole di sicurezza", p(
+                "Se il vetro si rompe, la pellicola di sicurezza trattiene i frammenti invece di lasciarli cadere: un "
+                "aiuto concreto dove passano clienti e personale, su vetrine, porte a vetro e vetrate ad altezza "
+                "d’uomo.")),
+            ("Grafiche per vetrine", p(
+                "Applico vetrofanie e grafiche adesive con logo, orari, scritte e promozioni. Tu, la tua agenzia o la tua "
+                "tipografia mi fornite la grafica pronta; io la applico con cura, ben allineata e senza bolle, così la "
+                "vetrina comunica in modo pulito e professionale.")),
+            ("Interno o esterno?", p(
+                "Dipende dal tipo di vetro, da come è esposto e dalla pellicola scelta: alcune vanno applicate sul lato "
+                "interno, altre funzionano meglio all’esterno. Lo valutiamo insieme caso per caso, durante il sopralluogo.")),
+            ("Il vantaggio di chi pulisce vetri", p(
+                "Una pellicola dura e si vede bella solo se il vetro sotto è perfettamente pulito: polvere, calcare o "
+                "residui restano intrappolati per sempre. Pulire vetrate è il mio lavoro di tutti i giorni, per questo "
+                "preparo il vetro con la stessa cura che metto nella pulizia, prima di ogni applicazione.") + "\n" +
+             p("Posso lavorare anche prima dell’apertura, la sera o nel giorno di chiusura, per non fermare la tua attività.")),
+            ("Conosciamoci", PREVENTIVO),
+        ],
+        "other": "Applico pellicole per vetri a Trento, Rovereto e in tutta la provincia. Mi occupo anche di pulizia vetrate e riqualificazione interni.",
     },
 ]
 
@@ -207,7 +257,7 @@ def jsonld(page):
     return json.dumps({
         "@context": "https://schema.org",
         "@type": "Service",
-        "serviceType": "Pulizia vetrate per aziende",
+        "serviceType": page.get("service_type", "Pulizia vetrate per aziende"),
         "name": page["h1"],
         "description": page["desc"],
         "areaServed": [
@@ -216,6 +266,9 @@ def jsonld(page):
         ],
         "audience": {"@type": "BusinessAudience", "name": "Negozi, showroom, hotel, ristoranti e aziende"},
         "url": f'{SITE}/{page["slug"]}.html',
+        **({"hasOfferCatalog": {"@type": "OfferCatalog", "name": page["h1"], "itemListElement": [
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": o}} for o in page["offers"]]}}
+           if page.get("offers") else {}),
         "provider": {"@id": f"{SITE}/#business", "@type": "LocalBusiness", "name": "MediS",
                      "telephone": "+39 351 987 8991", "email": "info@medistn.it", "url": f"{SITE}/",
                      "image": f"{SITE}/og-image.png", "areaServed": "Trentino"},
