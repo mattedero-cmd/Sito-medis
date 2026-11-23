@@ -580,6 +580,16 @@
     .mq__altro { margin-top: 14px; font: inherit; font-size: 0.92rem; font-weight: 600; color: var(--accent); background: transparent; border: 1px solid var(--accent-edge); border-radius: 999px; padding: 9px 18px; cursor: pointer; transition: border-color .2s ease, color .2s ease; }
     .mq__altro:hover { border-color: var(--accent); color: var(--text); }
     .mq__next { margin-top: 14px; font-size: 0.92rem; color: var(--text); }
+    .mq__sempre { margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--border); }
+    .mq__num--sempre { font-size: clamp(2rem, 10vw, 2.6rem); text-shadow: none; }
+    .mq__dal { font-size: 0.86rem; color: var(--muted); text-wrap: balance; }
+    .mq__h3 { margin: 18px 0 10px; font-size: 1rem; font-weight: 700; color: var(--text); }
+    .mq__trag { list-style: none; text-align: left; display: grid; gap: 8px; }
+    .mq__trag li { display: grid; grid-template-columns: 22px 1fr; gap: 4px 10px; align-items: start; padding: 10px 12px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; font-size: 0.9rem; line-height: 1.4; }
+    .mq__trag li[hidden] { display: none; }
+    .mq__trag svg { width: 20px; height: 20px; color: var(--accent); margin-top: 1px; }
+    .mq__trag time { grid-column: 2; font-size: 0.78rem; color: var(--faint); }
+    .mq__tutti { margin-top: 10px; font: inherit; font-size: 0.85rem; color: var(--accent); background: none; border: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
     .mq__agg { margin-top: 12px; font-size: 0.78rem; color: var(--faint); line-height: 1.5; }
 
     /* ===== Scoperta: comparsa allo scorrimento ===== */
@@ -820,7 +830,7 @@
         <h2 id="mq-title">Pulito nel <span id="mqAnno"></span></h2>
       </div>
       <div class="mq__card sr">
-        <p class="mq__label">Dal 1° gennaio ho pulito</p>
+        <p class="mq__label" id="mqDa">Dal 1° gennaio ho pulito</p>
         <p class="mq__num"><span id="mqNumero">0</span> <span class="mq__unit">m²</span></p>
         <p class="mq__eq">Cioè <strong id="mqQuanto"></strong></p>
         <figure class="mq__foto is-loading" id="mqFoto">
@@ -831,6 +841,14 @@
         <p class="mq__credit" id="mqCredito" hidden></p>
         <button type="button" class="mq__altro" id="mqAltro" hidden>Fammi un altro paragone</button>
         <p class="mq__next" id="mqProssimo" hidden></p>
+        <div class="mq__sempre" id="mqSempre" hidden>
+          <p class="mq__label">Da sempre</p>
+          <p class="mq__num mq__num--sempre"><span id="mqSempreNum">0</span> <span class="mq__unit">m²</span></p>
+          <p class="mq__dal" id="mqDal"></p>
+          <h3 class="mq__h3" id="mqTragTitolo">Traguardi raggiunti</h3>
+          <ol class="mq__trag" id="mqTraguardi"></ol>
+          <button type="button" class="mq__tutti" id="mqTutti" hidden>Mostra tutti i traguardi</button>
+        </div>
         <p class="mq__agg"><span id="mqAgg"></span> Contano le facce di vetro pulite davvero: dentro e fuori valgono doppio.</p>
       </div>
     </section>

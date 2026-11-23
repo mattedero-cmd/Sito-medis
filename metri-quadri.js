@@ -57,7 +57,8 @@
   /* Un paragone è «alla portata» se il totale ci sta almeno una volta e al massimo 12 volte. */
   const MAX_VOLTE = 12;
 
-  const fmt = (n, dec = 0) => n.toLocaleString('it-IT', { maximumFractionDigits: dec, minimumFractionDigits: 0 });
+  // `useGrouping: 'always'`: in italiano 7140 si scriverebbe senza il punto delle migliaia.
+  const fmt = (n, dec = 0) => n.toLocaleString('it-IT', { maximumFractionDigits: dec, minimumFractionDigits: 0, useGrouping: 'always' });
 
   /** Quali superfici si possono accostare al totale (le più grandi se nessuna è nel range). */
   function candidati(totale) {
@@ -127,6 +128,13 @@
   const prossimo = el('mqProssimo');
   const altro = el('mqAltro');
   const agg = el('mqAgg');
+  const da = el('mqDa');
+  const sempreBox = el('mqSempre');
+  const sempreNum = el('mqSempreNum');
+  const dal = el('mqDal');
+  const tragLista = el('mqTraguardi');
+  const tragTitolo = el('mqTragTitolo');
+  const tutti = el('mqTutti');
   const REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   let totale = 0;
@@ -177,8 +185,70 @@
     const s = SUPERFICI.find((x) => x.mq > totale);
     if (!s) { prossimo.hidden = true; return; }
     prossimo.hidden = false;
-    prossimo.textContent = `Prossimo traguardo: ${s.nome}. Mancano ${fmt(Math.ceil(s.mq - totale))} m².`;
+    prossimo.textContent = `Prossimo traguardo: ${s.nome}. Mancano ${fmt(Math.ceil(s.mq - totale))}\u00a0m².`;
   }
+
+  /**
+   * «il 3 marzo 2026», «l’8 marzo 2026», «il 1° maggio 2026» da «2026-03-03», senza passare per i
+   * fusi orari. `art` è la preposizione da accordare: «il» → «l’», «dal» → «dall’» davanti a 8 e 11.
+   */
+  const MESI = ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'];
+  const giorno = (iso, art) => {
+    const [a, m, g] = String(iso).split('-').map(Number);
+    const data = `${g === 1 ? '1°' : g} ${MESI[m - 1]} ${a}`;
+    const elisa = g === 8 || g === 11;
+    return `${elisa ? `${art}l’` : `${art} `}${data}`.replace(/^ill’/, 'l’');
+  };
+
+  /**
+   * I TRAGUARDI: per ogni superficie superata dal totale di sempre, il giorno in cui è successo
+   * (il primo punto del progressivo che la raggiunge). Dal più recente.
+   */
+  function traguardiRaggiunti(progressivo) {
+    const out = [];
+    for (const s of SUPERFICI) {
+      const p = progressivo.find((x) => x.mq >= s.mq);
+      if (p) out.push({ s, data: p.data });
+    }
+    return out.reverse();
+  }
+
+  const SPUNTA = '<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg>';
+  const VISIBILI = 5;
+
+  function mostraSempre(sempre, annoCorrente) {
+    if (!sempre || typeof sempre.mq !== 'number' || !sempre.dal) return;
+    // L'anno parte dal primo intervento a registro se è di quest'anno: prima non si contava.
+    if (String(sempre.dal).startsWith(`${annoCorrente}-`) && sempre.dal !== `${annoCorrente}-01-01`) {
+      const d = giorno(sempre.dal, 'dal');
+      da.textContent = `${d.charAt(0).toUpperCase()}${d.slice(1)}, primo intervento registrato, ho pulito`;
+    }
+    sempreBox.hidden = false;
+    sempreNum.textContent = fmt(sempre.mq);
+    dal.textContent = `Il conteggio parte ${giorno(sempre.dal, 'dal')}, giorno del primo intervento registrato nel mio registro di lavoro.`;
+    const trag = traguardiRaggiunti(Array.isArray(sempre.progressivo) ? sempre.progressivo : []);
+    tragLista.innerHTML = '';
+    if (!trag.length) { tragTitolo.hidden = true; return; }
+    trag.forEach((t, i) => {
+      const li = document.createElement('li');
+      li.innerHTML = SPUNTA;
+      const nome = document.createElement('span');
+      nome.textContent = `${t.s.nome.charAt(0).toUpperCase()}${t.s.nome.slice(1)} (${fmt(t.s.mq, 2)}\u00a0m²)`;
+      const quando = document.createElement('time');
+      quando.dateTime = t.data;
+      quando.textContent = `superato ${giorno(t.data, 'il')}`;
+      li.append(nome, quando);
+      if (i >= VISIBILI) li.hidden = true;
+      tragLista.appendChild(li);
+    });
+    tutti.hidden = trag.length <= VISIBILI;
+    tutti.textContent = `Mostra tutti i ${trag.length} traguardi`;
+  }
+
+  tutti.addEventListener('click', () => {
+    tragLista.querySelectorAll('li[hidden]').forEach((li) => { li.hidden = false; });
+    tutti.hidden = true;
+  });
 
   function avvia(dati) {
     totale = Math.max(0, Number(dati.mq) || 0);
@@ -186,6 +256,7 @@
     const d = new Date(dati.aggiornato);
     if (!isNaN(d)) agg.textContent = `Aggiornato al ${d.toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' })}.`;
     sez.hidden = false;
+    mostraSempre(dati.sempre, dati.anno);
 
     if (totale === 0) {
       numero.textContent = '0';
@@ -211,7 +282,7 @@
       numero.textContent = '0';
       const io = new IntersectionObserver(([e]) => {
         if (e.isIntersecting) { contaFino(totale); io.disconnect(); }
-      }, { threshold: 0.4 });
+      }, { threshold: 0.1 });
       io.observe(numero);
     } else {
       numero.textContent = fmt(totale);
@@ -230,5 +301,5 @@
     .catch(() => { /* gestionale non raggiungibile: la sezione resta nascosta */ });
 
   // Per le prove automatiche: le funzioni pure, senza toccare la pagina.
-  window.__mqMedis = { SUPERFICI, candidati, frase };
+  window.__mqMedis = { SUPERFICI, candidati, frase, traguardiRaggiunti };
 })();
