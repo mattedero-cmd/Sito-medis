@@ -86,8 +86,7 @@ La sezione «Pulito nel …» mostra i m² di vetro puliti nell'anno (dal primo 
 se è di quest'anno) e quelli **di sempre**, con la data in cui è stato superato ogni traguardo,
 letti dal gestionale
 (`https://medis-zeta.vercel.app/api/pubblico/mq-puliti`: anno, totale, ora del calcolo, data del
-primo intervento e totale progressivo per giornata, senza clienti; ora del
-calcolo; cache di un'ora). Se il gestionale non risponde la sezione resta nascosta.
+primo intervento e totale progressivo per giornata, senza clienti; cache di un'ora). Se il gestionale non risponde la sezione resta nascosta.
 
 Il totale viene accostato a caso a una superficie conosciuta fra quelle che ci stanno da 1 a 12
 volte (il pulsante ne propone un'altra), più il «prossimo traguardo». La foto è quella principale
