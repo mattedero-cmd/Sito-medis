@@ -193,6 +193,11 @@
    * fusi orari. `art` è la preposizione da accordare: «il» → «l’», «dal» → «dall’» davanti a 8 e 11.
    */
   const MESI = ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'];
+  /** «da luglio 2026»: per la partenza del conteggio basta il mese (scelta del titolare). */
+  const mese = (iso) => {
+    const [a, m] = String(iso).split('-').map(Number);
+    return `${MESI[m - 1]} ${a}`;
+  };
   const giorno = (iso, art) => {
     const [a, m, g] = String(iso).split('-').map(Number);
     const data = `${g === 1 ? '1°' : g} ${MESI[m - 1]} ${a}`;
@@ -219,13 +224,12 @@
   function mostraSempre(sempre, annoCorrente) {
     if (!sempre || typeof sempre.mq !== 'number' || !sempre.dal) return;
     // L'anno parte dal primo intervento a registro se è di quest'anno: prima non si contava.
-    if (String(sempre.dal).startsWith(`${annoCorrente}-`) && sempre.dal !== `${annoCorrente}-01-01`) {
-      const d = giorno(sempre.dal, 'dal');
-      da.textContent = `${d.charAt(0).toUpperCase()}${d.slice(1)}, primo intervento registrato, ho pulito`;
+    if (String(sempre.dal).startsWith(`${annoCorrente}-`) && !String(sempre.dal).startsWith(`${annoCorrente}-01-`)) {
+      da.textContent = `Da ${mese(sempre.dal)}, primo intervento registrato, ho pulito`;
     }
     sempreBox.hidden = false;
     sempreNum.textContent = fmt(sempre.mq);
-    dal.textContent = `Il conteggio parte ${giorno(sempre.dal, 'dal')}, giorno del primo intervento registrato nel mio registro di lavoro.`;
+    dal.textContent = `Il conteggio parte da ${mese(sempre.dal)}, mese del primo intervento registrato nel mio registro di lavoro.`;
     const trag = traguardiRaggiunti(Array.isArray(sempre.progressivo) ? sempre.progressivo : []);
     tragLista.innerHTML = '';
     if (!trag.length) { tragTitolo.hidden = true; return; }

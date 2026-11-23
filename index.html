@@ -580,8 +580,15 @@
     .mq__altro { margin-top: 14px; font: inherit; font-size: 0.92rem; font-weight: 600; color: var(--accent); background: transparent; border: 1px solid var(--accent-edge); border-radius: 999px; padding: 9px 18px; cursor: pointer; transition: border-color .2s ease, color .2s ease; }
     .mq__altro:hover { border-color: var(--accent); color: var(--text); }
     .mq__next { margin-top: 14px; font-size: 0.92rem; color: var(--text); }
-    .mq__sempre { margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--border); }
-    .mq__num--sempre { font-size: clamp(2rem, 10vw, 2.6rem); text-shadow: none; }
+    .mq__sempre { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border); }
+    .mq__sempre summary { list-style: none; display: inline-flex; align-items: center; gap: 6px; cursor: pointer; font-size: 0.86rem; color: var(--muted); padding: 4px 8px; border-radius: 8px; transition: color .2s ease; }
+    .mq__sempre summary::-webkit-details-marker { display: none; }
+    .mq__sempre summary:hover { color: var(--text); }
+    .mq__sempre summary:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
+    .mq__sempre summary svg { width: 16px; height: 16px; transition: transform .2s ease; }
+    .mq__sempre[open] summary svg { transform: rotate(180deg); }
+    .mq__apri { color: var(--accent); }
+    .mq__sempre[open] .mq__dal { margin-top: 8px; }
     .mq__dal { font-size: 0.86rem; color: var(--muted); text-wrap: balance; }
     .mq__h3 { margin: 18px 0 10px; font-size: 1rem; font-weight: 700; color: var(--text); }
     .mq__trag { list-style: none; text-align: left; display: grid; gap: 8px; }
@@ -798,30 +805,8 @@
       </a>
     </div>
 
-    <a class="cue reveal" href="#prova">Scopri cosa faccio<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
+    <a class="cue reveal" href="#cosa-faccio">Scopri cosa faccio<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
 
-    <!-- Prova a pulire il vetro -->
-    <div class="section-head sr" id="prova">
-      <span class="line"></span>
-      <h2>Prova tu</h2>
-    </div>
-    <p class="glass-intro sr"><span class="t-touch">Passa il dito sul vetro e puliscilo.</span><span class="t-mouse">Tieni premuto e trascina il mouse sul vetro per pulirlo.</span></p>
-    <div class="glass sr" id="glass">
-      <div class="glass__scene">
-        <img src="logo.png" alt="" width="84" height="84" />
-        <p class="glass__title">Così lascio le tue vetrate.</p>
-        <p class="glass__sub">Trasparenti, brillanti, senza aloni.</p>
-        <a class="glass__cta" href="https://wa.me/393519878991?text=Ciao%20Matteo%2C%20vorrei%20un%20preventivo%20per%20la%20pulizia%20delle%20vetrate%20della%20mia%20attivit%C3%A0." target="_blank" rel="noopener" tabindex="-1" id="glassCta">Voglio vetrate così</a>
-      </div>
-      <canvas id="dirt" aria-hidden="true"></canvas>
-      <span class="glass__hint"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-4 0v1M14 10V4a2 2 0 0 0-4 0v6M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg><span class="t-touch">Passa il dito sul vetro</span><span class="t-mouse">Trascina per pulire</span></span>
-    </div>
-    <div class="glass__meter sr" aria-hidden="true"><span id="meter"></span></div>
-    <div class="glass-tools sr">
-      <button type="button" id="cleanAll">Pulisci tutto</button>
-      <button type="button" id="dirtyAgain">Sporca di nuovo</button>
-    </div>
-    <p class="visually-hidden" id="glassStatus" role="status" aria-live="polite"></p>
 
     <!-- Metri quadri puliti quest'anno: numero dal gestionale, paragone e foto (metri-quadri.js) -->
     <section class="mq" id="mq" aria-labelledby="mq-title" hidden>
@@ -841,14 +826,13 @@
         <p class="mq__credit" id="mqCredito" hidden></p>
         <button type="button" class="mq__altro" id="mqAltro" hidden>Fammi un altro paragone</button>
         <p class="mq__next" id="mqProssimo" hidden></p>
-        <div class="mq__sempre" id="mqSempre" hidden>
-          <p class="mq__label">Da sempre</p>
-          <p class="mq__num mq__num--sempre"><span id="mqSempreNum">0</span> <span class="mq__unit">m²</span></p>
+        <details class="mq__sempre" id="mqSempre" hidden>
+          <summary><span>Da sempre: <span id="mqSempreNum">0</span>&nbsp;m² <span class="mq__apri">· vedi i traguardi</span></span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
           <p class="mq__dal" id="mqDal"></p>
           <h3 class="mq__h3" id="mqTragTitolo">Traguardi raggiunti</h3>
           <ol class="mq__trag" id="mqTraguardi"></ol>
           <button type="button" class="mq__tutti" id="mqTutti" hidden>Mostra tutti i traguardi</button>
-        </div>
+        </details>
         <p class="mq__agg"><span id="mqAgg"></span> Contano le facce di vetro pulite davvero: dentro e fuori valgono doppio.</p>
       </div>
     </section>
@@ -1182,151 +1166,6 @@
         qb.setAttribute('aria-hidden', String(!show));
         qb.querySelectorAll('a').forEach((a) => (a.tabIndex = show ? 0 : -1));
       }).observe(actions);
-    })();
-
-    // ── Prova a pulire il vetro ──
-    (function () {
-      const glass = document.getElementById('glass');
-      const canvas = document.getElementById('dirt');
-      const ctx = canvas.getContext('2d');
-      const meter = document.getElementById('meter');
-      const status = document.getElementById('glassStatus');
-      const cta = document.getElementById('glassCta');
-      let w = 0, h = 0, dpr = 1, last = null, down = false, done = false, demoed = false, moves = 0;
-
-      function rand(a, b) { return a + Math.random() * (b - a); }
-
-      function paintDirt() {
-        const r = glass.getBoundingClientRect();
-        dpr = Math.min(window.devicePixelRatio || 1, 2);
-        w = Math.round(r.width - 16); h = Math.round(r.height - 16);  // dentro la cornice da 8px
-        canvas.width = w * dpr; canvas.height = h * dpr;
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        ctx.globalCompositeOperation = 'source-over';
-        // velo di polvere
-        ctx.fillStyle = 'rgba(122, 128, 116, 0.9)';
-        ctx.fillRect(0, 0, w, h);
-        // macchie
-        for (let i = 0; i < 26; i++) {
-          const x = rand(0, w), y = rand(0, h), rr = rand(30, 120);
-          const g = ctx.createRadialGradient(x, y, 0, x, y, rr);
-          const tone = Math.random() < 0.5 ? '150, 140, 112' : '90, 98, 92';
-          g.addColorStop(0, 'rgba(' + tone + ', ' + rand(0.35, 0.6).toFixed(2) + ')');
-          g.addColorStop(1, 'rgba(' + tone + ', 0)');
-          ctx.fillStyle = g; ctx.fillRect(x - rr, y - rr, rr * 2, rr * 2);
-        }
-        // colature di pioggia
-        ctx.lineCap = 'round';
-        for (let i = 0; i < 40; i++) {
-          const x = rand(0, w), y = rand(-20, h * 0.6), len = rand(30, 140);
-          ctx.strokeStyle = 'rgba(180, 176, 150, ' + rand(0.12, 0.3).toFixed(2) + ')';
-          ctx.lineWidth = rand(1, 3);
-          ctx.beginPath(); ctx.moveTo(x, y); ctx.bezierCurveTo(x + rand(-4, 4), y + len / 3, x + rand(-6, 6), y + len / 1.5, x + rand(-3, 3), y + len); ctx.stroke();
-          ctx.fillStyle = 'rgba(190, 186, 160, 0.35)';
-          ctx.beginPath(); ctx.arc(x, y + len, rand(1.5, 3.5), 0, Math.PI * 2); ctx.fill();
-        }
-        // granelli
-        const img = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        const d = img.data;
-        for (let i = 0; i < d.length; i += 4) {
-          const n = (Math.random() - 0.5) * 38;
-          d[i] += n; d[i + 1] += n; d[i + 2] += n;
-        }
-        ctx.putImageData(img, 0, 0);
-        ctx.globalCompositeOperation = 'destination-out';
-      }
-
-      function wipe(a, b) {
-        // il tergivetro: una lama larga che lascia il segno pulito
-        ctx.lineCap = 'round'; ctx.lineJoin = 'round';
-        ctx.lineWidth = Math.max(44, w * 0.085);
-        ctx.strokeStyle = 'rgba(0,0,0,1)';
-        ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
-        if (++moves % 6 === 0) measure();
-      }
-
-      function measure() {
-        const step = 12 * dpr;
-        const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-        let clear = 0, tot = 0;
-        for (let y = 0; y < canvas.height; y += step) {
-          for (let x = 0; x < canvas.width; x += step) {
-            tot++;
-            if (data[(Math.floor(y) * canvas.width + Math.floor(x)) * 4 + 3] < 60) clear++;
-          }
-        }
-        const pct = clear / tot;
-        meter.parentElement.style.setProperty('--clean', Math.min(1, pct / 0.6).toFixed(3));
-        meter.style.transform = 'scaleX(' + Math.min(1, pct / 0.6).toFixed(3) + ')';
-        if (pct > 0.6 && !done) finish();
-      }
-
-      function finish() {
-        done = true;
-        glass.classList.add('clean', 'touched');
-        meter.style.transform = 'scaleX(1)';
-        cta.tabIndex = 0;
-        status.textContent = 'Vetro pulito. Così lascio le tue vetrate: trasparenti, brillanti, senza aloni.';
-      }
-
-      function reset() {
-        done = false; moves = 0;
-        glass.classList.remove('clean');
-        cta.tabIndex = -1;
-        meter.style.transform = 'scaleX(0)';
-        status.textContent = '';
-        paintDirt();
-      }
-
-      function point(e) {
-        const r = canvas.getBoundingClientRect();
-        return { x: e.clientX - r.left, y: e.clientY - r.top };
-      }
-
-      canvas.addEventListener('pointerdown', (e) => {
-        if (done) return;
-        down = true; glass.classList.add('touched');
-        canvas.setPointerCapture(e.pointerId);
-        last = point(e); wipe(last, { x: last.x + 0.1, y: last.y });
-      });
-      canvas.addEventListener('pointermove', (e) => {
-        if (!down || done) return;
-        const p = point(e); wipe(last, p); last = p;
-      });
-      const up = () => { if (down) { down = false; measure(); } };
-      canvas.addEventListener('pointerup', up);
-      canvas.addEventListener('pointercancel', up);
-
-      document.getElementById('cleanAll').addEventListener('click', finish);
-      document.getElementById('dirtyAgain').addEventListener('click', reset);
-
-      // una passata dimostrativa quando il vetro entra nello schermo
-      function demo() {
-        if (demoed || REDUCE || done) return;
-        demoed = true;
-        const pts = [];
-        for (let i = 0; i <= 40; i++) {
-          const t = i / 40;
-          pts.push({ x: w * (0.12 + 0.76 * t), y: h * (0.32 + 0.12 * Math.sin(t * Math.PI)) });
-        }
-        let i = 1;
-        (function stepDemo() {
-          if (glass.classList.contains('touched') || i >= pts.length) { measure(); return; }
-          wipe(pts[i - 1], pts[i]); i++;
-          requestAnimationFrame(stepDemo);
-        })();
-      }
-
-      paintDirt();
-      let rw = glass.getBoundingClientRect().width;
-      addEventListener('resize', () => {
-        const nw = glass.getBoundingClientRect().width;
-        if (Math.abs(nw - rw) > 40 && !done) { rw = nw; paintDirt(); }
-      });
-      if ('IntersectionObserver' in window) {
-        const io = new IntersectionObserver(([e]) => { if (e.isIntersecting && e.intersectionRatio > 0.6) { setTimeout(demo, 500); io.disconnect(); } }, { threshold: [0.6] });
-        io.observe(glass);
-      }
     })();
 
     // ── Su desktop il mouse aggiunge un leggero parallax (il logo si muove comunque da solo) ──

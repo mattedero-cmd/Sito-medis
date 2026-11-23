@@ -35,7 +35,7 @@ ristoranti, palestre, sedi aziendali) in tutto il Trentino, più **riqualificazi
 interni** e **pellicole per vetri**.
 
 - Schermata iniziale: logo, nome, pulsanti Chiama, WhatsApp, Email, Salva contatto
-- Prova tu: vetro sporco da pulire col dito, con pulsante preventivo
+- Pulito nel …: metri quadri puliti nell'anno dal gestionale, con paragoni e traguardi (vedi sotto)
 - Cosa faccio: Pulizia vetrate, Riqualificazione interni, Controllo solare (testi nell'HTML, dettagli in finestra)
 - Per chi lavoro, Il mio metodo (aste ad acqua demineralizzata fino al 2° piano), Come lavoro
 - Chi sono, Domande frequenti, zone (Trento, Rovereto, Trentino)
