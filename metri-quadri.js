@@ -225,11 +225,11 @@
     if (!sempre || typeof sempre.mq !== 'number' || !sempre.dal) return;
     // L'anno parte dal primo intervento a registro se è di quest'anno: prima non si contava.
     if (String(sempre.dal).startsWith(`${annoCorrente}-`) && !String(sempre.dal).startsWith(`${annoCorrente}-01-`)) {
-      da.textContent = `Da ${mese(sempre.dal)}, primo intervento registrato, ho pulito`;
+      da.textContent = `Da ${mese(sempre.dal)} ho pulito`;
     }
     sempreBox.hidden = false;
     sempreNum.textContent = fmt(sempre.mq);
-    dal.textContent = `Il conteggio parte da ${mese(sempre.dal)}, mese del primo intervento registrato nel mio registro di lavoro.`;
+    dal.textContent = `Da ${mese(sempre.dal)}.`;
     const trag = traguardiRaggiunti(Array.isArray(sempre.progressivo) ? sempre.progressivo : []);
     tragLista.innerHTML = '';
     if (!trag.length) { tragTitolo.hidden = true; return; }
@@ -264,7 +264,7 @@
 
     if (totale === 0) {
       numero.textContent = '0';
-      quanto.textContent = 'anno nuovo, vetri nuovi: il contatore è appena ripartito!';
+      quanto.parentElement.textContent = 'Anno nuovo, vita nuova…';
       fig.hidden = true; altro.hidden = true; nota.hidden = true;
       traguardo();
       return;
