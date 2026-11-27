@@ -80,10 +80,10 @@
   // ── Foto da Wikipedia / Commons (CORS aperto con origin=*) ──
   const fotoCache = new Map();
   const isFoto = (file) => /\.(jpe?g|webp)$/i.test(file || '');
+  // DOMParser: legge il testo senza caricare immagini né eseguire codice presente nei metadati.
   const testo = (html) => {
-    const d = document.createElement('div');
-    d.innerHTML = html || '';
-    return (d.textContent || '').replace(/\s+/g, ' ').trim();
+    const d = new DOMParser().parseFromString(html || '', 'text/html');
+    return (d.body.textContent || '').replace(/\s+/g, ' ').trim();
   };
 
   async function fotoDi(s) {

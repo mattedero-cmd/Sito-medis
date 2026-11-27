@@ -36,13 +36,14 @@ interni** e **pellicole per vetri**.
 
 - Schermata iniziale: logo, nome, pulsanti Chiama, WhatsApp, Email, Salva contatto
 - Pulito nel …: metri quadri puliti nell'anno dal gestionale, con paragoni e traguardi (vedi sotto)
-- Cosa faccio: Pulizia vetrate, Riqualificazione interni, Controllo solare (testi nell'HTML, dettagli in finestra)
-- Per chi lavoro, Il mio metodo (aste ad acqua demineralizzata fino al 2° piano), Come lavoro
+- Cosa faccio: Pulizia vetri e vetrate, Riqualificazione interni, Pellicole per vetri (testi nell'HTML, dettagli in finestra con link alle pagine dedicate)
+- Per chi lavoro, Il mio metodo (vello e tergivetro; aste ad acqua demineralizzata solo in quota, fino al 2° piano), Come lavoro
 - Chi sono, Domande frequenti, zone (Trento, Rovereto, Trentino)
-- Pagine città: `lavavetri-trento.html`, `lavavetri-rovereto.html` (generate da `build_seo_pages.py`)
+- Pagine dedicate (generate da `build_seo_pages.py`): `lavavetri-trento.html`, `lavavetri-rovereto.html`,
+  `pulizia-vetri-trentino.html`, `pellicole-per-vetri-trento.html`, `riqualificazione-interni-trento.html`
 - `og-image.png`: immagine per le anteprime dei link (1200x630)
 
-Il pulsante recensioni si attiva inserendo il link in `REVIEW_URL` (nello script in fondo a `index.html`).
+Il pulsante «Lascia una recensione» usa il link del Profilo Google (`REVIEW_URL` nello script in fondo a `index.html`).
 La cartella `prove/` contiene le proposte alternative e non viene pubblicata.
 
 ## Dati attività

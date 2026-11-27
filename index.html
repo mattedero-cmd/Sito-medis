@@ -249,6 +249,7 @@
       --mask: #000;
       --logo-plate: #0a0a0a;
       --scrim: rgba(0, 0, 0, 0.7);
+      --caption-scrim: rgba(0, 0, 0, 0.78);
       --modal-bg: #0c1413;
       --dot: rgba(255, 255, 255, 0.04);
       --sheen: rgba(255, 255, 255, 0.05);
@@ -564,7 +565,7 @@
 
     /* ===== Metri quadri puliti quest'anno ===== */
     .mq[hidden] { display: none; }
-    .mq__card { background: var(--surface); border: 1px solid var(--border); border-radius: 22px; padding: 24px 20px 20px; text-align: center; }
+    .mq__card { color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 22px; padding: 24px 20px 20px; text-align: center; }
     .mq__label { color: var(--muted); font-size: 0.95rem; }
     .mq__num { font-size: clamp(2.6rem, 13vw, 3.6rem); font-weight: 800; line-height: 1.1; color: var(--text); font-variant-numeric: tabular-nums; margin: 4px 0 6px; text-shadow: 0 0 34px var(--accent-glow); }
     .mq__unit { color: var(--accent); font-size: 0.55em; }
@@ -576,7 +577,7 @@
     .mq__foto.is-loading img, .mq__foto.no-foto img { opacity: 0; }
     .mq__ph { position: absolute; inset: 0; margin: auto; width: 56px; height: 56px; color: var(--accent-edge); opacity: 0; transition: opacity .3s ease; }
     .mq__foto.no-foto .mq__ph, .mq__foto.is-loading .mq__ph { opacity: 1; }
-    .mq__foto figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 28px 14px 12px; text-align: left; font-size: 0.86rem; line-height: 1.45; color: #fff; background: linear-gradient(180deg, transparent, rgba(0,0,0,.78)); }
+    .mq__foto figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 28px 14px 12px; text-align: left; font-size: 0.86rem; line-height: 1.45; color: var(--text); background: linear-gradient(180deg, transparent, var(--caption-scrim)); }
     .mq__credit { margin-top: 6px; font-size: 0.72rem; color: var(--faint); text-align: right; overflow-wrap: anywhere; }
     .mq__credit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
     .mq__altro { margin-top: 14px; font: inherit; font-size: 0.92rem; font-weight: 600; color: var(--accent); background: transparent; border: 1px solid var(--accent-edge); border-radius: 999px; padding: 9px 18px; cursor: pointer; transition: border-color .2s ease, color .2s ease; }
@@ -615,54 +616,6 @@
     .cue:hover { color: var(--accent); }
     .cue svg { width: 22px; height: 22px; color: var(--accent); animation: cue 2.2s ease-in-out infinite; }
     @keyframes cue { 0%, 100% { transform: translateY(0); opacity: .7; } 50% { transform: translateY(6px); opacity: 1; } }
-
-    /* ===== Prova a pulire il vetro ===== */
-    .glass-intro { text-align: center; color: var(--muted); font-size: 0.95rem; margin-top: -8px; }
-    .glass {
-      position: relative; margin-top: 16px; border-radius: 20px; overflow: hidden;
-      border: 8px solid var(--surface-2); box-shadow: 0 0 0 1px var(--border), 0 30px 60px -30px var(--lift-shadow);
-      aspect-ratio: 4 / 3; touch-action: none; user-select: none; -webkit-user-select: none;
-      cursor: grab;
-    }
-    .glass:active { cursor: grabbing; }
-    .glass__scene {
-      position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 8px; padding: 24px; text-align: center;
-      background:
-        radial-gradient(60% 50% at 75% 20%, var(--aurora-1), transparent 70%),
-        radial-gradient(70% 60% at 15% 90%, var(--aurora-2), transparent 70%),
-        linear-gradient(160deg, var(--surface-2), var(--bg) 70%);
-    }
-    .glass__scene::before {
-      content: ""; position: absolute; inset: 0; pointer-events: none;
-      background: linear-gradient(115deg, transparent 30%, var(--sheen) 40%, transparent 48%, transparent 58%, var(--sheen) 63%, transparent 70%);
-    }
-    .glass__scene img { width: 84px; height: 84px; object-fit: contain; -webkit-mask-image: radial-gradient(circle, var(--mask) 66%, transparent 71%); mask-image: radial-gradient(circle, var(--mask) 66%, transparent 71%); }
-    .glass__title { font-size: clamp(1.5rem, 5vw, 2.2rem); font-weight: 800; line-height: 1.15; text-wrap: balance; }
-    .glass__sub { color: var(--muted); font-size: 0.98rem; }
-    .glass__cta { margin-top: 12px; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; border-radius: 14px; background: var(--accent); color: var(--on-accent); font-weight: 700; text-decoration: none; }
-    .js .glass__cta { opacity: 0; transform: translateY(8px); transition: opacity .5s ease, transform .5s ease; pointer-events: none; }
-    .js .glass.clean .glass__cta { opacity: 1; transform: none; pointer-events: auto; }
-    .glass canvas { position: absolute; inset: 0; width: 100%; height: 100%; transition: opacity .8s ease; }
-    .glass.clean canvas { opacity: 0; pointer-events: none; }
-    .glass__hint {
-      position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%);
-      display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px;
-      background: var(--scrim); color: var(--text); font-size: 0.85rem; font-weight: 500; pointer-events: none;
-      transition: opacity .4s ease; white-space: nowrap;
-    }
-    .glass__hint svg { width: 18px; height: 18px; color: var(--accent); }
-    .glass.touched .glass__hint { opacity: 0; }
-    .t-mouse { display: none; }
-    @media (pointer: fine) { .t-touch { display: none; } .t-mouse { display: inline; } }
-    .glass-tools { display: flex; justify-content: center; gap: 8px; margin-top: 12px; }
-    .glass-tools button {
-      min-height: 44px; padding: 0 16px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface);
-      color: var(--muted); font: inherit; font-size: 0.88rem; font-weight: 500; cursor: pointer; transition: color .2s ease, border-color .2s ease;
-    }
-    .glass-tools button:hover { color: var(--text); border-color: var(--accent); }
-    .glass__meter { height: 4px; border-radius: 4px; background: var(--border); margin-top: 12px; overflow: hidden; }
-    .glass__meter span { display: block; height: 100%; background: var(--accent); transform-origin: left center; transform: scaleX(var(--clean, 0)); transition: transform .2s ease; }
 
     /* ===== Per chi lavoro ===== */
     .sectors-intro { text-align: center; color: var(--muted); font-size: 0.98rem; margin: -8px auto 16px; max-width: 32em; }
@@ -750,7 +703,6 @@
       .services .service:first-child { grid-column: 1 / -1; }
       .services .service:first-child .service__excerpt { -webkit-line-clamp: 3; }
       .about { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: start; }
-      .glass { aspect-ratio: 16 / 7; }
       .sectors { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .method { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
@@ -759,7 +711,6 @@
       *, *::before, *::after { animation: none !important; transition: none !important; }
       .reveal, .js .sr { opacity: 1 !important; transform: none !important; }
       .js .section-head.sr .line { transform: none !important; }
-      .glass__cta { transition: none; }
     }
   </style>
 </head>
@@ -822,7 +773,7 @@
         <p class="mq__num"><span id="mqNumero">0</span> <span class="mq__unit">m²</span></p>
         <p class="mq__eq">Cioè <strong id="mqQuanto"></strong></p>
         <figure class="mq__foto is-loading" id="mqFoto">
-          <img id="mqImg" alt="" width="960" height="640" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+          <img id="mqImg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" width="960" height="640" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
           <svg class="mq__ph" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
           <figcaption id="mqNota"></figcaption>
         </figure>
