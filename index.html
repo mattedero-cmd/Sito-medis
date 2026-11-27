@@ -704,6 +704,7 @@
         width: 100%; max-width: 640px; margin-inline: auto;
       }
       .actions .btn--primary { grid-column: 1 / -1; }
+      .actions #reviewBtn { grid-column: 1 / -1; }
       .services { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
       .services .service:first-child { grid-column: 1 / -1; }
       .services .service:first-child .service__excerpt { -webkit-line-clamp: 3; }
@@ -760,7 +761,7 @@
         <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M7 16a2.5 2.5 0 0 1 5 0"/><line x1="15" y1="9" x2="18" y2="9"/><line x1="15" y1="13" x2="18" y2="13"/></svg>
         Salva contatto
       </a>
-      <a class="btn" id="reviewBtn" href="#" target="_blank" rel="noopener" style="display:none;">
+      <a class="btn" id="reviewBtn" href="https://g.page/r/CUjbSYZW_iHdEBI/review" target="_blank" rel="noopener">
         <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.7L12 17.3 5.8 20.8l1.6-6.7L2.2 8.9l6.9-.6L12 2z"/></svg>
         Lascia una recensione
       </a>
@@ -971,7 +972,7 @@
     const INSTAGRAM_URL = "https://www.instagram.com/8_medis_9/";
 
     // ── Link recensioni Google (incolla qui quando avrai il Profilo dell'attività) ──
-    const REVIEW_URL = "";
+    const REVIEW_URL = "https://g.page/r/CUjbSYZW_iHdEBI/review";
     if (REVIEW_URL) {
       const rb = document.getElementById('reviewBtn');
       rb.href = REVIEW_URL;
