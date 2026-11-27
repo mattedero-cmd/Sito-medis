@@ -229,7 +229,7 @@
     }
     sempreBox.hidden = false;
     sempreNum.textContent = fmt(sempre.mq);
-    dal.textContent = `Conto da ${mese(sempre.dal)}, quando ho cominciato a segnare i lavori.`;
+    dal.textContent = `Da ${mese(sempre.dal)}.`;
     const trag = traguardiRaggiunti(Array.isArray(sempre.progressivo) ? sempre.progressivo : []);
     tragLista.innerHTML = '';
     if (!trag.length) { tragTitolo.hidden = true; return; }
@@ -264,7 +264,7 @@
 
     if (totale === 0) {
       numero.textContent = '0';
-      quanto.textContent = 'ancora niente, l\'anno è appena cominciato.';
+      quanto.parentElement.textContent = 'Anno nuovo, vita nuova…';
       fig.hidden = true; altro.hidden = true; nota.hidden = true;
       traguardo();
       return;
